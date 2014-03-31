@@ -1,8 +1,6 @@
 'use strict';
 
-angular.module('ximsWebApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $http.get('/api/awesomeThings').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
+angular.module('ximsApp')
+  .controller('MainCtrl', function ($scope, ModuleService) {
+    ModuleService.name = ModuleService.HOME;
   });

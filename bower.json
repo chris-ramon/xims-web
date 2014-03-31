@@ -10,7 +10,11 @@
     "angular-resource": "1.2.11",
     "angular-cookies": "1.2.11",
     "angular-sanitize": "1.2.11",
-    "angular-route": "1.2.11"
+    "angular-route": "1.2.11",
+    "sass-bootstrap": "~3.0.2",
+    "font-awesome": "~4.0.3",
+    "angular-i18n": "~1.2.14",
+    "angular-bootstrap": "latest"
   },
   "devDependencies": {
     "angular-mocks": "1.2.11",

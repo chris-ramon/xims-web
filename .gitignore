@@ -1,3 +1,5 @@
+.idea/
+xims-web.iml
 node_modules
 public
 .tmp

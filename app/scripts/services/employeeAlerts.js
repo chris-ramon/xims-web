@@ -2,8 +2,8 @@
 
 
 angular.module('ximsApp')
-  .service('EmployeeAlertsService', ['$http', 'UserService', 'EmployeeService',
-    function($http, UserService, EmployeeService) {
+  .service('EmployeeAlertsService', ['$http', 'UserService', 'EmployeeService', 'backend',
+    function($http, UserService, EmployeeService, backend) {
       var self = this;
       self.filterApplied = false;
       self.currentFilter = null;
@@ -30,7 +30,7 @@ angular.module('ximsApp')
       };
 
       self.getAllUrl = function(alertType) {
-        var url = 'http://0.0.0.0:3000/:organization_id/employees/alerts/:alert_type/';
+        var url = backend.url + '/:organization_id/employees/alerts/:alert_type/';
         return url
           .replace(':organization_id', UserService.currentUser.organization.id)
           .replace(':alert_type', alertType);
@@ -39,7 +39,7 @@ angular.module('ximsApp')
       self.search = function(term, page) {
         EmployeeService.loadingEmployees = true;
         var _page = page || 1;
-        var url = 'http://0.0.0.0:3000/search/employees';
+        var url = backend.url + '/search/employees';
         return $http({
           url: url,
           method: 'GET',

@@ -155,5 +155,11 @@
         <script src="scripts/controllers/sessions.js"></script>
         <script src="scripts/controllers/employeesCtrl.js"></script>
         <!-- endbuild -->
+
+        <%if (process.env.NODE_ENV == 'development') { %>
+        <script>angular.module('ximsApp').value('backend', { url: 'http://0.0.0.0:3000' });</script>
+        <% } else if (process.env.NODE_ENV == 'production') { %>
+        <script>angular.module('ximsApp').value('backend', { url: 'http://segguro-api.herokuapp.com' });</script>
+        <% } %>
 </body>
 </html>

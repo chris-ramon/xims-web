@@ -141,25 +141,26 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/services/main.js"></script>
-        <script src="scripts/services/appSettings.js"></script>
-        <script src="scripts/services/employee.js"></script>
-        <script src="scripts/services/user.js"></script>
-        <script src="scripts/services/employeeAlerts.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/employeeListCtrl.js"></script>
-        <script src="scripts/controllers/employeeListFiltersCtrl.js"></script>
-        <script src="scripts/controllers/navBars.js"></script>
-        <script src="scripts/controllers/sessions.js"></script>
-        <script src="scripts/controllers/employeesCtrl.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/main.js"></script>
+    <script src="scripts/services/appSettings.js"></script>
+    <script src="scripts/services/employee.js"></script>
+    <script src="scripts/services/user.js"></script>
+    <script src="scripts/services/employeeAlerts.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/employeeListCtrl.js"></script>
+    <script src="scripts/controllers/employeeListFiltersCtrl.js"></script>
+    <script src="scripts/controllers/navBars.js"></script>
+    <script src="scripts/controllers/sessions.js"></script>
+    <script src="scripts/controllers/employeesCtrl.js"></script>
+    <!-- endbuild -->
+    
+    <%if (process.env.NODE_ENV == 'development') { %>
+    <script>angular.module('ximsApp').value('Global',{env:0});</script>
+    <% } else if (process.env.NODE_ENV == 'production') { %>
+    <script>angular.module('ximsApp').value('Global',{env:1});</script>
+    <% } %>
 
-        <%if (process.env.NODE_ENV == 'development') { %>
-        <script>angular.module('ximsApp').value('backend', { url: 'http://0.0.0.0:3000' });</script>
-        <% } else if (process.env.NODE_ENV == 'production') { %>
-        <script>angular.module('ximsApp').value('backend', { url: 'http://segguro-api.herokuapp.com' });</script>
-        <% } %>
 </body>
 </html>

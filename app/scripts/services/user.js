@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('ximsApp')
-  .service('UserService', ['$http', 'backend', function($http, backend) {
+  .service('UserService', ['$http', 'ApiRoutes', function($http, ApiRoutes) {
     var self = this;
     self.currentUser = null;
     self.signIn = function(userForm) {
       return $http({
-        url: backend.url + '/users/sign_in',
+        url: ApiRoutes.getMainApiUrl() + '/users/sign_in',
         method: 'POST',
         data: {
           user: {
@@ -16,13 +16,13 @@ angular.module('ximsApp')
     }
     self.signOut = function() {
       return $http({
-        url: backend.url + '/users/sign_out',
+        url: ApiRoutes.getMainApiUrl() + '/users/sign_out',
         method: 'DELETE'
       }).success(afterSignOut);
     }
     self.setCurrentUser = function() {
       return $http({
-        url: backend.url + '/users/current_user',
+        url: ApiRoutes.getMainApiUrl() + '/users/current_user',
         method: 'GET'
       }).success(updateCurrentUser);
     }

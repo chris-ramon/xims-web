@@ -2,8 +2,8 @@
 
 
 angular.module('ximsApp')
-  .service('EmployeeService', ['$http', 'UserService', 'backend',
-    function($http, UserService, backend) {
+  .service('EmployeeService', ['$http', 'UserService', 'ApiRoutes',
+    function($http, UserService, ApiRoutes) {
       var self = this;
       self.employees = [];
       self.employeesCache = [];
@@ -22,7 +22,7 @@ angular.module('ximsApp')
       };
 
       self.getAllUrl = function() {
-        var url = backend.url + '/:organization_id/employees';
+        var url = ApiRoutes.getMainApiUrl() + '/:organization_id/employees';
         return url.replace(':organization_id',
           UserService.currentUser.organization.id);
       };
@@ -31,7 +31,7 @@ angular.module('ximsApp')
         if(self.loadingEmployees) { return false; }
         self.loadingEmployees = true;
         var _page = page || 1;
-        var url = backend.url + '/search/employees';
+        var url = ApiRoutes.getMainApiUrl() + '/search/employees';
         return $http({
           url: url,
           method: 'GET',
@@ -55,7 +55,7 @@ angular.module('ximsApp')
       };
 
       self.getOneUrl = function(employeeId) {
-        return backend.url + '/employees/:employee_id'
+        return ApiRoutes.getMainApiUrl() + '/employees/:employee_id'
           .replace(':employee_id', employeeId);
       };
 

@@ -15,6 +15,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/nvd3/src/nv.d3.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
@@ -40,7 +41,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Segguro</a>
+          <a class="brand navbar-brand" href="#">Segguro</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -65,58 +66,48 @@
 
     <!-- Main container  -->
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul ng-controller="SidebarCtrl" class="nav nav-sidebar">
-            <li ng-class="{active: currentModule('home')}">
-              <a ng-href="#">
-                <span class="glyphicon glyphicon-dashboard"></span> Dashboard
-              </a>
-            </li>
-            <li ng-class="{active: currentModule('employee')}" >
-              <a id="empModuleAnchor" href="#/trabajadores">
-                <i class="fa fa-users"></i> Trabajadores
-              </a>
-            </li>
-            <li ng-class="{active: currentModule('training')}" >
-              <a href="#/capacitaciones">
-                <i class="fa fa-file-text-o"></i> Capacitaciones</a>
-            </li>
-            <li ng-class="{active: currentModule('training')}" >
-              <a href="#/capacitaciones">
-                <i class="fa fa-sitemap"></i> IPER</a>
-            </li>
-            <li ng-class="{active: currentModule('training')}" >
-              <a href="#/capacitaciones">
-                <i class="fa fa-search"></i> Investigación de Accidentes</a>
-            </li>
-            <li ng-class="{active: currentModule('training')}" >
-              <a href="#/capacitaciones">
-                <i class="fa fa-user-md"></i> Auditorías</a>
-            </li>
-            <li ng-class="{active: currentModule('training')}" >
-              <a href="#/capacitaciones">
-                <i class="fa fa-table"></i> Reportes</a>
-            </li>
-          </ul>
-          <!--<ul class="nav nav-sidebar">-->
-          <!--<li><a href="">Nav item</a></li>-->
-          <!--<li><a href="">Nav item again</a></li>-->
-          <!--<li><a href="">One more nav</a></li>-->
-          <!--<li><a href="">Another nav item</a></li>-->
-          <!--<li><a href="">More navigation</a></li>-->
-          <!--</ul>-->
-          <!--<ul class="nav nav-sidebar">-->
-          <!--<li><a href="">Nav item again</a></li>-->
-          <!--<li><a href="">One more nav</a></li>-->
-          <!--<li><a href="">Another nav item</a></li>-->
-          <!--</ul>-->
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <div id="content" ng-view=""></div>
-        </div>
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul ng-controller="SidebarCtrl" class="nav nav-sidebar">
+          <li ng-class="{active: currentModule('home')}">
+            <a ng-href="#">
+              <span class="fa fa-home"></span> Home
+            </a>
+          </li>
+          <li ng-class="{active: currentModule('employee')}" >
+            <a id="empModuleAnchor" href="#/trabajadores">
+              <i class="fa fa-users"></i> Trabajadores
+            </a>
+          </li>
+          <li ng-class="{active: currentModule('training')}" >
+            <a href="#/capacitaciones">
+              <i class="fa fa-file-text-o"></i> Capacitaciones</a>
+          </li>
+          <li ng-class="{active: currentModule('iper')}" >
+            <a href="#">
+              <i class="fa fa-sitemap"></i> IPER</a>
+          </li>
+          <li ng-class="{active: currentModule('invAccidents')}" >
+            <a href="#">
+              <i class="fa fa-search"></i> Investigación de Accidentes</a>
+          </li>
+          <li ng-class="{active: currentModule('audit')}" >
+            <a href="#">
+              <i class="fa fa-user-md"></i> Auditorías</a>
+          </li>
+          <li ng-class="{active: currentModule('reports')}" >
+            <a href="#">
+              <i class="fa fa-table"></i> Reportes</a>
+          </li>
+          <li ng-class="{active: currentModule('dashboard')}">
+            <a ng-href="#">
+              <span class="glyphicon glyphicon-dashboard"></span> Dashboard
+            </a>
+          </li>
+        </ul>
       </div>
-
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div id="content" ng-view=""></div>
+      </div>
     </div>
 
 
@@ -138,6 +129,8 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/nvd3/nv.d3.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -162,5 +155,6 @@
     <script>angular.module('ximsApp').value('Global',{env:1});</script>
     <% } %>
 
+    <script src="bower_components/angular-i18n/angular-locale_es-pe.js"></script>
 </body>
 </html>

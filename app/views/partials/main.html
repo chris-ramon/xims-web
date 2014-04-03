@@ -1,26 +1,29 @@
-<div class="jumbotron">
-  <h1>Plataforma XIMS</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" width="50" alt="deming"><br>
-    Plataforma para sistemas integrales de gestión.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/trabajadores">Iniciar !</a></p>
-</div>
-
-<div class="row marketing">
-  <h4>Módulo de Empleados</h4>
-  <p>
-  </p>
-
-  <h4>Módulo de Capacitaciones</h4>
-  <p>
-  </p>
-
-  <h4>Módulo de Investigación de Accidentes</h4>
-  <p>
-  </p>
-</div>
-
-<div class="footer">
-  <p></p>
+<div class="stadistics">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="logoPlaceHolder col-xs-2">Logo</div>
+        <div class="col-xs-10">
+          <h4>{{ UserService.currentUser.organization.name }}</h4>
+          <h5><small>{{ today | date:'EEEE, d MMM - yyyy' }}</small></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 well">
+      <h4 class="text-center">Accidentes e Incidentes según categoría - 2014</h4><br>
+      <div id="accidentsIncidentsReport1" class='with-3d-shadow with-transitions'>
+        <svg></svg>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 well">
+      <h4 class="text-center">Accidentes e Incidentes - 2014</h4><br>
+      <div id="accidentsIncidentsReport2" class='with-3d-shadow with-transitions'>
+        <svg></svg>
+      </div>
+    </div>
+  </div>
 </div>

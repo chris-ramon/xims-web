@@ -143,4 +143,45 @@ body {
 .date-row .btn-group button:nth-child(3){
     display: none;
 }
+
+.logoPlaceHolder {
+    width: 52px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #cccccc;
+    border: 1px dotted #cccccc;
+    border-radius: 3px;
+    width: 52px;
+    height: 52px;
+    vertical-align: top;
+    text-align: center;
+    line-height: 52px;
+    font-size: 1.1rem;
+    padding: 1px;
+}
+
+.stadistics .well {
+    background-color: #f9fafb;
+}
+
+#accidentsIncidentsReport1, #accidentsIncidentsReport2 {
+    height: 500px;
+    margin: 10px;
+    min-width: 100px;
+    min-height: 100px;
+    /*
+      Minimum height and width is a good idea to prevent negative SVG dimensions...
+      For example width should be =< margin.left + margin.right + 1,
+      of course 1 pixel for the entire chart would not be very useful, BUT should not have errors
+    */
+}
+
+.brand
+{
+    background: url("/images/segguro-logo.png") no-repeat 8px center;
+    height: 50px;
+    width: 100px;
+    padding-left: 45px;
+}
 /* end custom styling */

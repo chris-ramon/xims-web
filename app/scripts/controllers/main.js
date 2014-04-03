@@ -3,11 +3,10 @@
 angular.module('ximsApp')
   .controller('MainCtrl', ['$scope', 'ModuleService', 'UserService', function ($scope, ModuleService, UserService) {
     ModuleService.name = ModuleService.HOME;
-
     $scope.today = new Date();
     $scope.UserService = UserService;
 
-    //  BARCHART to move bar chart
+    //  Report: Accidents/Incidents by category
     var data = [
       {
         key: "Accidentes de tránsito",
@@ -87,7 +86,6 @@ angular.module('ximsApp')
           ]
       }
     ];
-
     var chart;
     nv.addGraph(function() {
       chart = nv.models.multiBarChart()
@@ -109,9 +107,9 @@ angular.module('ximsApp')
       nv.utils.windowResize(chart.update);
       return chart;
     });
-    // end to move bar chart
+    // end Report: Accidents/Incidents by category
 
-    //  PIECHART to move bar chart
+    //  Report: Accidents/Incidents by quantity
     var dataPieChart = [
       {
         key: "Accidentes de tránsito",
@@ -150,8 +148,6 @@ angular.module('ximsApp')
         y: 0
       }
     ];
-
-
     nv.addGraph(function() {
       var width = 500,
         height = 500;
@@ -172,6 +168,6 @@ angular.module('ximsApp')
         .call(chart);
       return chart;
     });
+    // end Report: Accidents/Incidents by quantity
 
-    // end to move bar chart
   }]);

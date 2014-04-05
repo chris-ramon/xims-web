@@ -165,7 +165,7 @@ body {
     background-color: #f9fafb;
 }
 
-#accidentsIncidentsReport1, #accidentsIncidentsReport2 {
+.home-graphic-report {
     height: 500px;
     margin: 10px;
     min-width: 100px;
@@ -176,9 +176,10 @@ body {
       of course 1 pixel for the entire chart would not be very useful, BUT should not have errors
     */
 }
-
-.brand
-{
+.capitalized {
+    text-transform: capitalize;
+}
+.brand {
     background: url("/images/segguro-logo.png") no-repeat 8px center;
     height: 50px;
     width: 100px;

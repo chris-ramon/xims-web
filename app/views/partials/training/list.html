@@ -93,11 +93,19 @@
   <!-- END ORDER BY -->
 
   <!-- SEARCH -->
-  <div class="col-xs-5 input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-    <input ng-model="searchText" type="text"
-           class="form-control"
-           placeholder="Buscar ...">
+  <div class="col-xs-5">
+    <form ng-submit="setEmployees()" class="input-group">
+      <input ng-model="searchText" type="text" class="form-control" placeholder="N° Registro, Tema ...">
+      <span class="input-group-btn">
+      <button
+          ng-click="setEmployees()"
+          ng-disabled="EmployeeService.loadingEmployees"
+          id="empSearchBtn"
+          class="btn btn-default"
+          type="button">
+        <i class="glyphicon glyphicon-search"></i> Buscar</button>
+      </span>
+    </form>
   </div>
   <!-- END SEARCH -->
 

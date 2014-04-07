@@ -6,6 +6,7 @@ angular.module('ximsApp')
     self.HOME = 'home';
     self.TRAINING = 'training';
     self.EMPLOYEE = 'employee';
-    self.name = name;
+    self.INCIDENT = 'incident';
+    self.ACTION = 'action';
     return self;
   });

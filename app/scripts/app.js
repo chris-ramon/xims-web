@@ -16,7 +16,7 @@ angular.module('ximsApp', [
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
-      .when('/sign_in', {
+      .when('/ingresar', {
         templateUrl: 'partials/session/sign_in',
         controller: 'SignInCtrl'
       })
@@ -44,9 +44,35 @@ angular.module('ximsApp', [
         templateUrl: 'partials/training/detail.html',
         controller: 'TrainingCtrl'
       })
+      .when('/incidentes', {
+        templateUrl: 'partials/incident/list.html',
+        controller: 'IncidentListCtrl'
+      })
+      .when('/incidentes/nuevo', {
+        templateUrl: 'partials/incident/new.html',
+        controller: 'IncidentNewCtrl'
+      })
+      .when('/acciones', {
+        templateUrl: 'partials/action/list.html',
+        controller: 'ActionListCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
       
     $locationProvider.html5Mode(true);
+  })
+  .run(function($rootScope, $location, UserService) {
+    // register listener to watch route changes
+    $rootScope.$on("$routeChangeStart", function(event, next, current) {
+      if (UserService.currentUser == null) {
+        // no logged user, we should be going to #login
+        if ( next.templateUrl == "partials/session/sign_in" ) {
+          // already going to #login, no redirect needed
+        } else {
+          // not going to #login, we should redirect now
+          $location.path( "/ingresar" );
+        }
+      }
+    });
   });

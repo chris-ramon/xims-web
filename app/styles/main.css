@@ -136,14 +136,10 @@ body {
 .sg-pagination a {
     cursor: pointer;
 }
-.date-row .dropdown-menu {
-    z-index: 9999;
-}
-.date-row .btn-group button:nth-child(2),
-.date-row .btn-group button:nth-child(3){
-    display: none;
-}
-
+.xims-date-picker-wrapper .dropdown-menu {z-index: 9999; }
+.xims-hour-picker-wrapper { top: -38px; }
+.hide-extra-date-buttons .btn-group button:nth-child(2),
+.hide-extra-date-buttons .btn-group button:nth-child(3) { display: none; }
 .logoPlaceHolder {
     width: 52px;
     white-space: nowrap;
@@ -160,11 +156,9 @@ body {
     font-size: 1.1rem;
     padding: 1px;
 }
-
 .stadistics .well {
     background-color: #f9fafb;
 }
-
 .home-graphic-report {
     height: 500px;
     margin: 10px;

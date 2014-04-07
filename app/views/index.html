@@ -51,13 +51,13 @@
                 {{ UserService.currentUser.first_name }}
                 <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a id='signOutAnchor' ng-click="signOut()" href="">Cerrar sesión</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a id='signOutAnchor' ng-click="signOut()" href="">
+                  <i class="fa fa-sign-out"></i>
+                  Cerrar sesión</a></li>
+                <!--<li class="divider"></li>-->
+                <!--<li class="dropdown-header">Nav header</li>-->
+                <!--<li><a href="#">Separated link</a></li>-->
+                <!--<li><a href="#">One more separated link</a></li>-->
               </ul>
             </li>
           </ul>
@@ -83,13 +83,17 @@
             <a href="#/capacitaciones">
               <i class="fa fa-file-text-o"></i> Capacitaciones</a>
           </li>
+          <li ng-class="{active: currentModule('incident')}" >
+            <a href="#/incidentes">
+              <i class="fa fa-search"></i> Investigación de Incidentes</a>
+          </li>
+          <li ng-class="{active: currentModule('action')}" >
+            <a href="#/acciones">
+              <i class="fa fa-calendar"></i> Seguimiento de Acciones</a>
+          </li>
           <li ng-class="{active: currentModule('iper')}" >
             <a href="#">
               <i class="fa fa-sitemap"></i> IPER</a>
-          </li>
-          <li ng-class="{active: currentModule('invAccidents')}" >
-            <a href="#">
-              <i class="fa fa-search"></i> Investigación de Accidentes</a>
           </li>
           <li ng-class="{active: currentModule('audit')}" >
             <a href="#">
@@ -97,7 +101,7 @@
           </li>
           <li ng-class="{active: currentModule('reports')}" >
             <a href="#">
-              <i class="fa fa-table"></i> Reportes</a>
+              <i class="fa fa-bar-chart-o"></i> Reportes</a>
           </li>
           <li ng-class="{active: currentModule('dashboard')}">
             <a ng-href="#">
@@ -147,6 +151,9 @@
     <script src="scripts/controllers/employeeListCtrl.js"></script>
     <script src="scripts/controllers/employeeListFiltersCtrl.js"></script>
     <script src="scripts/controllers/trainingListCtrl.js"></script>
+    <script src="scripts/controllers/incidentListCtrl.js"></script>
+    <script src="scripts/controllers/incidentNewCtrl.js"></script>
+    <script src="scripts/controllers/actionListCtrl.js"></script>
     <script src="scripts/controllers/navBars.js"></script>
     <script src="scripts/controllers/sessions.js"></script>
     <script src="scripts/controllers/employeesCtrl.js"></script>

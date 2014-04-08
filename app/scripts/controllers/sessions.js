@@ -14,7 +14,7 @@ angular.module('ximsApp')
           })
           .error(function() {
             afterSignIn();
-            $scope.flashMessage = 'Email or Password incorrect!.';
+            $scope.flashMessage = 'Email o Password incorrecto.';
           });
       }
       function afterSignIn() { $scope.singingIn = false; }

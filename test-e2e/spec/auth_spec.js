@@ -15,7 +15,7 @@ describe('Sign Out Page', function() {
     var signOutPage = require('../pages/sign_out_page.js');
     signOutPage.get();
     signOutPage.signOut();
-    expect(browser.getCurrentUrl()).toEqual('http://0.0.0.0:9000/');
+    expect(browser.getCurrentUrl()).toEqual('http://0.0.0.0:9000/ingresar');
     expect(signOutPage.currentUser.getText()).toMatch('');
   });
 });

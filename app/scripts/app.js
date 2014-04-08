@@ -65,14 +65,8 @@ angular.module('ximsApp', [
   .run(function($rootScope, $location, UserService) {
     // register listener to watch route changes
     $rootScope.$on("$routeChangeStart", function(event, next, current) {
-      if (UserService.currentUser == null) {
-        // no logged user, we should be going to #login
-        if ( next.templateUrl == "partials/session/sign_in" ) {
-          // already going to #login, no redirect needed
-        } else {
-          // not going to #login, we should redirect now
-          $location.path( "/ingresar" );
-        }
-      }
+      UserService.setCurrentUser()
+        .success(function() { $rootScope.$emit('userLogged'); })
+        .error(function() { $location.path( "/ingresar" ); });
     });
   });

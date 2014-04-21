@@ -33,13 +33,16 @@
 
 <div class="row formWrapper">
   <form ng-submit="save()" role="form" class="col-xs-12">
-    <!-- responsible -->
+
     <div class="row">
+      <!-- responsible -->
       <div class="form-group col-xs-4">
         <label for="trainingResponsibleInput">N° DNI - Responsable del Registro</label>
         <input ng-model="training.responsibleIdNumber" id="trainingResponsibleInput" type="text"
                class="form-control" required>
       </div>
+      <!-- END responsible -->
+
       <!-- project -->
       <div class="form-group col-xs-4">
         <label>Proyecto</label>
@@ -54,7 +57,7 @@
       </div>
       <!-- END project -->
     </div>
-    <!-- END responsible -->
+
 
     <div class="row">
       <!-- incident type -->

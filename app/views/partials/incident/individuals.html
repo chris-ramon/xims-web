@@ -1,0 +1,198 @@
+<div class="page-header">
+  <h2>Incidente - SAU-AL-001-14 </h2>
+</div>
+
+<!-- process steps -->
+<div class="row">
+  <div class="stepwizard">
+    <div class="stepwizard-row">
+      <div class="stepwizard-step">
+        <button type="button" class="btn btn-default btn-circle" disabled="disabled">1</button>
+        <p><small><a href="#/incidentes/nuevo" class="">Información Básica</a></small></p>
+      </div>
+      <div class="stepwizard-step">
+        <button type="button" class="btn btn-primary btn-circle">2</button>
+        <p><small><a href="#/incidentes/1/trabajadores" class="">Trabajadores Afectados</a></small></p>
+      </div>
+      <div class="stepwizard-step">
+        <button type="button" class="btn btn-default btn-circle" disabled="disabled">3</button>
+        <p><small><a href="#/incidentes/1/evaluacion" class="">Evaluación</a></small></p>
+      </div>
+      <div class="stepwizard-step">
+        <button type="button" class="btn btn-default btn-circle" disabled="disabled">4</button>
+        <p><small><a href="#" class="">Investigación</a></small></p>
+      </div>
+      <div class="stepwizard-step">
+        <button type="button" class="btn btn-default btn-circle" disabled="disabled">5</button>
+        <p><small><a href="#" class="">Acciones Correctivas</a></small></p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END process steps -->
+
+<div class="row formWrapper">
+  <form ng-submit="save()" role="form" class="col-xs-12">
+    <!-- employees -->
+    <div class="page-header">
+      <h3>Trabajadores Afectados</h3>
+    </div>
+    <div class="row">
+      <div class="table-lines col-xs-12">
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr>
+            <th>TRABAJADOR</th>
+            <th>PARTE DEL CUERPO AFECTADO</th>
+            <th>TIPO DE LESIÓN</th>
+            <th>TRATAMIENTO</th>
+            <th>OBSERVACIONES</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              <input id="individual1" ng-model="individual1"
+                     typeahead-template-url="customTemplate.html"
+                     typeahead="individual as individual.name for individual in individuals | filter:$viewValue | limitTo:8"
+                     xims-typeahead-creator
+                     template="newEmployeeTpl"
+                     type="text"
+                     class="form-control" required placeholder="DNI, Nombres, Apellidos ..." autofocus>
+            </td>
+            <td>
+              <select class="form-control">
+                <option></option>
+                <option>Cabeza</option>
+                <option>Ojos</option>
+                <option>Brazos</option>
+                <option>Manos</option>
+                <option>Pies</option>
+                <option>Oídos</option>
+                <option>Cara</option>
+                <option>Tronco</option>
+                <option>Piernas</option>
+                <option>Otros</option>
+              </select>
+            </td>
+            <td></td>
+            <td></td>
+            <td><textarea class="form-control"></textarea></td>
+            <td><a href="#" class=""><i class="glyphicon glyphicon-trash"></i></a></td>
+          </tr>
+          <tr>
+            <td>
+              <input ng-model="individual2"
+                     typeahead-template-url="customTemplate.html"
+                     typeahead="individual as individual.name for individual in individuals | filter:$viewValue | limitTo:8"
+                     xims-typeahead-creator
+                     template="newEmployeeTpl"
+                     type="text"
+                     class="form-control" required placeholder="DNI, Nombres, Apellidos ..." autofocus>
+            </td>
+            <td>
+              <select class="form-control">
+                <option></option>
+                <option>Cabeza</option>
+                <option>Ojos</option>
+                <option>Brazos</option>
+                <option>Manos</option>
+                <option>Pies</option>
+                <option>Oídos</option>
+                <option>Cara</option>
+                <option>Tronco</option>
+                <option>Piernas</option>
+                <option>Otros</option>
+              </select>
+            </td>
+            <td></td>
+            <td></td>
+            <td><textarea class="form-control"></textarea></td>
+            <td><a href="#" class=""><i class="glyphicon glyphicon-trash"></i></a></td>
+          </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-default">Agregar más lineas</button>
+        <button class="btn btn-default">Limpiar todas las lineas</button>
+      </div>
+    </div>
+    <!-- END employees -->
+
+    <div class="row navbar-default navbar-fixed-bottom formActionsNavbar">
+      <div class="col-xs-6">
+        <a href="#/capacitaciones" class="btn btn-default">Cerrar</a>
+      </div>
+      <div class="col-xs-6">
+        <button class="btn btn-primary pull-right btn-lg">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script type="text/ng-template" id="customTemplate.html">
+  <a tabindex="-1">
+    <span>DNI: {{ match.model.id_number }}</span> -
+    <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+  </a>
+</script>
+<script type="text/ng-template" id="newEmployeeTpl">
+  <div ng-controller="newEmployeeCtrl">
+    <div class="alert alert-info">
+      <p>No se encontraron resultados para <strong>{{ model }}</strong>.</p>
+    </div>
+    <legend>Nuevo Trabajador</legend>
+    <form ng-submit="save($event)" role="form" class="floatingForm">
+      <div class="row">
+        <div class="form-group col-xs-4">
+          <label for="employeeIdNumberInput">DNI</label>
+          <input ng-model="employeeIdNumber"
+                 type="number"
+                 class="form-control"
+                 id="employeeIdNumberInput"
+                 placeholder="DNI ..." autofocus="">
+        </div>
+        <div class="form-group col-xs-4">
+          <label for="employeeNameInput">Nombres</label>
+          <input ng-model="employeeName"
+                 type="text"
+                 class="form-control"
+                 id="employeeNameInput"
+                 placeholder="Nombres ..." autofocus="">
+        </div>
+        <div class="col-xs-4">
+          <label for="employeeLastNameInput">Apellidos</label>
+          <input ng-model="projectCode"
+                 type="text"
+                 class="form-control"
+                 id="employeeLastNameInput"
+                 placeholder="Apellidos ...">
+        </div>
+      </div>
+      <div class="row spacedDoubleRow">
+        <div class="form-group col-xs-4">
+          <label for="employeeAgeInput">Edad</label>
+          <input ng-model="employeeAge" id="employeeAgeInput" class="form-control" placeholder="Edad ..." type="number">
+        </div>
+        <div class="form-group col-xs-4">
+          <label>Área</label>
+          <input ng-model="employeeWorkspace" id="employeeWorkspaceInput" class="form-control" placeholder="Área ...">
+        </div>
+        <div class="form-group col-xs-4">
+          <label>Ocupación</label>
+          <input ng-model="employeeOccupation" id="employeeOccupationInput" class="form-control" placeholder="Ocupación ...">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button ng-click="close($event, false)" type='button' class="btn btn-default">
+            <i class="fa fa-close"></i> Cerrar
+          </button>
+          <button type='submit' class="btn btn-primary">
+            <i class="fa fa-save"></i> Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</script>

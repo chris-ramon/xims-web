@@ -14,7 +14,7 @@
     "sass-bootstrap": "~3.0.2",
     "font-awesome": "~4.0.3",
     "angular-i18n": "~1.2.14",
-    "angular-bootstrap": "latest",
+    "angular-bootstrap": "git@github.com:chris-ramon/bootstrap-bower-typeahead.git",
     "d3": "~3.3.13",
     "nvd3": "~1.1.15",
     "c3": "~0.1.26"

@@ -2,10 +2,13 @@
 
 
 angular.module('ximsApp')
-  .controller('IncidentNewCtrl', ['ModuleService', '$routeParams', '$scope',
-    function(ModuleService, $routeParams, $scope) {
+  .controller('IncidentNewCtrl', ['ModuleService', 'ProjectService','$routeParams', '$scope',
+    function(ModuleService, ProjectService, $routeParams, $scope) {
       ModuleService.name = ModuleService.INCIDENT;
-      $scope.incident = {};
+      $scope.incident = {project: null};
+      $scope.ProjectService = ProjectService;
+
+
       // datepicker
       $scope.format = 'dd-MMMM-yyyy';
       $scope.minDate = new Date();
@@ -14,4 +17,14 @@ angular.module('ximsApp')
         $event.stopPropagation();
         model.dateOpened = !model.dateOpened;
       };
-    }]);
+    }])
+  .controller('newProjectCtrl', ['$scope', 'ProjectService', 'PopoverService',
+    function($scope, ProjectService, PopoverService) {
+    $scope.save = function(event) {
+      var newProject = {id: 10, name: $scope.projectName};
+      ProjectService.projects.push(newProject);
+      PopoverService.optionSelected = newProject;
+      $scope.$parent.close(null, true);
+      event.preventDefault();
+    }
+  }]);

@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('ximsApp', [
+  'ui.bootstrap',
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ximsPopover',
+  'ximsTypeaheadCreator'
 ])
   .config(function ($httpProvider, $routeProvider, $locationProvider) {
     // so we can send the cookies for auth
@@ -52,6 +54,10 @@ angular.module('ximsApp', [
         templateUrl: 'partials/incident/new.html',
         controller: 'IncidentNewCtrl'
       })
+      .when('/incidentes/:incidentId/trabajadores', {
+        templateUrl: 'partials/incident/individuals.html',
+        controller: 'IncidentIndividualsNewCtrl'
+      })
       .when('/acciones', {
         templateUrl: 'partials/action/list.html',
         controller: 'ActionListCtrl'
@@ -62,8 +68,8 @@ angular.module('ximsApp', [
       
     $locationProvider.html5Mode(true);
   })
-  .run(function($rootScope, $location, UserService) {
-    // register listener to watch route changes
+  .run(function($rootScope, $location, UserService, Global) {
+    if(Global.env == 0) {return;} // for development purposes
     $rootScope.$on("$routeChangeStart", function(event, next, current) {
       UserService.setCurrentUser()
         .success(function() { $rootScope.$emit('userLogged'); })

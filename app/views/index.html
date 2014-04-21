@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="styles/dashboard.css">
     <link rel="stylesheet" href="styles/harmony.css">
     <link rel="stylesheet" href="styles/signin.css">
+    <link rel="stylesheet" href="styles/process_steps.css">
     <!-- endbuild -->
   </head>
   <body ng-app="ximsApp">
@@ -141,11 +142,14 @@
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/lib/xims-popover.js"></script>
+    <script src="scripts/lib/xims-typeahead-creator.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/services/main.js"></script>
     <script src="scripts/services/appSettings.js"></script>
     <script src="scripts/services/employee.js"></script>
     <script src="scripts/services/user.js"></script>
+    <script src="scripts/services/project.js"></script>
     <script src="scripts/services/employeeAlerts.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/employeeListCtrl.js"></script>
@@ -153,6 +157,7 @@
     <script src="scripts/controllers/trainingListCtrl.js"></script>
     <script src="scripts/controllers/incidentListCtrl.js"></script>
     <script src="scripts/controllers/incidentNewCtrl.js"></script>
+    <script src="scripts/controllers/incidentIndividualsNewCtrl.js"></script>
     <script src="scripts/controllers/actionListCtrl.js"></script>
     <script src="scripts/controllers/navBars.js"></script>
     <script src="scripts/controllers/sessions.js"></script>

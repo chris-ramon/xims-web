@@ -123,6 +123,9 @@ body {
 .spacedRow {
     margin-bottom: 1em;
 }
+.spacedDoubleRow {
+    margin-bottom: 2em;
+}
 .nav-sidebar a:hover {
     background: #428bca !important;
     color: white !important;
@@ -178,5 +181,9 @@ body {
     height: 50px;
     width: 100px;
     padding-left: 45px;
+}
+.popover {
+    z-index: 1031;
+    max-width: 100%;
 }
 /* end custom styling */

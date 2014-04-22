@@ -69,10 +69,12 @@ angular.module('ximsApp', [
     $locationProvider.html5Mode(true);
   })
   .run(function($rootScope, $location, UserService, Global) {
-    if(Global.env == 0) {return;} // for development purposes
     $rootScope.$on("$routeChangeStart", function(event, next, current) {
       UserService.setCurrentUser()
         .success(function() { $rootScope.$emit('userLogged'); })
-        .error(function() { $location.path( "/ingresar" ); });
+        .error(function() {
+          if(Global.env == 0) {return;} // for development purposes
+          $location.path( "/ingresar" );
+        });
     });
   });

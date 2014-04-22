@@ -156,7 +156,7 @@
     </tr>
     </thead>
     <tbody ng-hide="EmployeeService.loadingEmployees" >
-    <tr ng-repeat="employee in EmployeeService.employees | orderBy:predicate:reverse">
+    <tr ng-repeat="employee in EmployeeService.employees | orderBy:predicate:reverse track by employee.id">
       <td>
           <a ng-href="#/trabajadores/{{ employee.id }}"
              class="">{{ employee.id_number }}</a></td>

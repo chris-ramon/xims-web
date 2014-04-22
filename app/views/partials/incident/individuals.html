@@ -3,32 +3,9 @@
 </div>
 
 <!-- process steps -->
-<div class="row">
-  <div class="stepwizard">
-    <div class="stepwizard-row">
-      <div class="stepwizard-step">
-        <button type="button" class="btn btn-default btn-circle" disabled="disabled">1</button>
-        <p><small><a href="#/incidentes/nuevo" class="">Información Básica</a></small></p>
-      </div>
-      <div class="stepwizard-step">
-        <button type="button" class="btn btn-primary btn-circle">2</button>
-        <p><small><a href="#/incidentes/1/trabajadores" class="">Trabajadores Afectados</a></small></p>
-      </div>
-      <div class="stepwizard-step">
-        <button type="button" class="btn btn-default btn-circle" disabled="disabled">3</button>
-        <p><small><a href="#/incidentes/1/evaluacion" class="">Evaluación</a></small></p>
-      </div>
-      <div class="stepwizard-step">
-        <button type="button" class="btn btn-default btn-circle" disabled="disabled">4</button>
-        <p><small><a href="#" class="">Investigación</a></small></p>
-      </div>
-      <div class="stepwizard-step">
-        <button type="button" class="btn btn-default btn-circle" disabled="disabled">5</button>
-        <p><small><a href="#" class="">Acciones Correctivas</a></small></p>
-      </div>
-    </div>
-  </div>
-</div>
+<xims-steps-wizard steps="IncidentStepsService.steps"
+                   active-id="{{ IncidentStepsService.individualsId }}">
+</xims-steps-wizard>
 <!-- END process steps -->
 
 <div class="row formWrapper">

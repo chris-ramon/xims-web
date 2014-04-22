@@ -7,7 +7,7 @@ describe('ximsPopoverSelectController', function() {
 
   beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope;
-    ctrl = $controller(ximsPopoverSelectController,
+    ctrl = $controller('ximsPopoverSelectController',
       {$scope: scope, $element: null});
   }));
 

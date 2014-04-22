@@ -41,6 +41,13 @@ describe('employees page', function() {
       expect(employeesPage.filterAppliedMessage.isDisplayed()).toBe(false);
     });
   });
+  describe('when changing of page', function() {
+    it('should list employees', function() {
+      employeesPage.get();
+      employeesPage.nextPageButton.click();
+      expect(employeesPage.employeesList.count()).toBeGreaterThan(0);
+    });
+  });
   it('should list filters', function() {
     employeesPage.get();
     expect(employeesPage.riskInsuranceFilter.getText()).toMatch(/d+/);

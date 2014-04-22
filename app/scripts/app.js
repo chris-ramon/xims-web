@@ -73,7 +73,7 @@ angular.module('ximsApp', [
       UserService.setCurrentUser()
         .success(function() { $rootScope.$emit('userLogged'); })
         .error(function() {
-          if(Global.env == 0) {return;} // for development purposes
+          // if(Global.env == 0) {return;} // for development purposes so it does not redirects, keep this commented.
           $location.path( "/ingresar" );
         });
     });

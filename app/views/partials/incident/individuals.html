@@ -181,7 +181,7 @@
                  placeholder="Apellidos ...">
         </div>
       </div>
-      <div class="row spacedDoubleRow">
+      <div class="row">
         <div class="form-group col-xs-4">
           <label for="employeeAgeInput">Edad</label>
           <input ng-model="employeeAge" id="employeeAgeInput" class="form-control" placeholder="Edad ..." type="number">
@@ -193,6 +193,17 @@
         <div class="form-group col-xs-4">
           <label>Ocupación</label>
           <input ng-model="employeeOccupation" id="employeeOccupationInput" class="form-control" placeholder="Ocupación ...">
+        </div>
+      </div>
+      <div class="row spacedDoubleRow">
+        <div class="form-group col-xs-4">
+          <label for="employeeCompanySelect">Empresa</label>
+          <select ng-model="employee.organizationId" id="employeeCompanySelect" class="form-control">
+            <option>Empresa 1</option>
+            <option>Empresa 2</option>
+            <option>Empresa 3</option>
+            <option>Empresa 4</option>
+          </select>
         </div>
       </div>
       <div class="row">

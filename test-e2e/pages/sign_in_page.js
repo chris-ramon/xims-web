@@ -4,7 +4,7 @@ var SignInPage = function() {
   this.signInButton = element(by.id('signInBtn'));
   this.currentUser = element(by.binding('UserService.currentUser.first_name'));
   this.get = function() {
-    browser.get('http://0.0.0.0:9000/#/sign_in');
+    browser.get('http://0.0.0.0:9000/ingresar');
   };
   this.setEmail = function(email) {
     this.emailInput.sendKeys(email);

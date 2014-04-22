@@ -6,8 +6,10 @@ angular.module('ximsApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+  'xims.incident',
   'ximsPopover',
-  'ximsTypeaheadCreator'
+  'ximsTypeaheadCreator',
+  'ximsStepsWizard'
 ])
   .config(function ($httpProvider, $routeProvider, $locationProvider) {
     // so we can send the cookies for auth

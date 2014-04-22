@@ -2,12 +2,12 @@
 
 
 angular.module('ximsApp')
-  .controller('IncidentNewCtrl', ['ModuleService', 'ProjectService','$routeParams', '$scope',
-    function(ModuleService, ProjectService, $routeParams, $scope) {
+  .controller('IncidentNewCtrl', ['ModuleService', 'ProjectService', 'IncidentStepsService', '$routeParams', '$scope',
+    function(ModuleService, ProjectService, IncidentStepsService, $routeParams, $scope) {
       ModuleService.name = ModuleService.INCIDENT;
       $scope.incident = {project: null};
       $scope.ProjectService = ProjectService;
-
+      $scope.IncidentStepsService = IncidentStepsService;
 
       // datepicker
       $scope.format = 'dd-MMMM-yyyy';

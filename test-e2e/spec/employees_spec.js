@@ -12,6 +12,12 @@ describe('employees page', function() {
     employeesPage.get();
     expect(employeesPage.employeesList.count()).toBeGreaterThan(0);
   });
+  it('should list filters', function() {
+    employeesPage.get();
+    expect(employeesPage.riskInsuranceFilter.getText()).toMatch(/d+/);
+    expect(employeesPage.medicalExamFilter.getText()).toMatch(/d+/);
+    expect(employeesPage.noInductionFilter.getText()).toMatch(/d+/);
+  });
   describe('when search', function() {
     it('should list employees when empty search text', function() {
       employeesPage.get();
@@ -47,12 +53,6 @@ describe('employees page', function() {
       employeesPage.nextPageButton.click();
       expect(employeesPage.employeesList.count()).toBeGreaterThan(0);
     });
-  });
-  it('should list filters', function() {
-    employeesPage.get();
-    expect(employeesPage.riskInsuranceFilter.getText()).toMatch(/d+/);
-    expect(employeesPage.medicalExamFilter.getText()).toMatch(/d+/);
-    expect(employeesPage.noInductionFilter.getText()).toMatch(/d+/);
   });
   it('afterAll', function() {
     signOutPage.signOut();

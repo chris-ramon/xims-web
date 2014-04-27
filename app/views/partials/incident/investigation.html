@@ -1,0 +1,91 @@
+<div class="page-header">
+  <h2>Incidente - SAU-AL-001-14 </h2>
+</div>
+
+<!-- process steps -->
+<xims-steps-wizard steps="IncidentStepsService.steps"
+                   active-id="{{ IncidentStepsService.investigationId }}">
+</xims-steps-wizard>
+<!-- END process steps -->
+
+<div class="row formWrapper">
+  <form ng-submit="save()" role="form" class="col-xs-12">
+
+    <div class="page-header">
+      <h3>Investigación</h3>
+    </div>
+
+    <!-- risk -->
+    <div class="row">
+      <div class="form-group col-xs-4">
+        <label for="incidentRiskSelect">Riesgo Asociado</label>
+        <select id="incidentRiskSelect" class="form-control">
+          <option value=""></option>
+          <option value="{{ risk.id }}" ng-repeat="risk in risks">{{ risk.name }}</option>
+        </select>
+      </div>
+    </div>
+    <!-- END risk -->
+
+    <div class="page-header">
+      <h3>Actos Subestándares</h3>
+    </div>
+
+    <!-- substandard acts -->
+    <div class="row">
+      <div class="table-lines col-xs-12">
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr>
+            <th>ACTO SUB-ESTÁNDAR</th>
+            <th>CAUSA BÁSICA</th>
+            <th>SUB-CAUSA BÁSICA</th>
+            <th>NECESIDAD DEL SISTEMA</th>
+            <th>SUB-NECESIDAD DEL SISTEMA</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="subStandardFact in incident.subStandardFacts" xims-cause-row immediate-cause-type="{{ CauseService.subStandardActId }}"></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- END substandard acts -->
+
+
+    <!-- substandard conditions -->
+    <div class="page-header">
+      <h3>Condiciones Subestándares</h3>
+    </div>
+    <div class="row">
+      <div class="table-lines col-xs-12">
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr>
+            <th>CONDICIÓN SUB-ESTÁNDAR</th>
+            <th>CAUSA BÁSICA</th>
+            <th>SUB-CAUSA BÁSICA</th>
+            <th>NECESIDAD DEL SISTEMA</th>
+            <th>SUB-NECESIDAD DEL SISTEMA</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="subStandardFact in incident.subStandardFacts" xims-cause-row immediate-cause-type="{{ CauseService.subStandardConditionId }}"></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- END substandard conditions -->
+
+    <div class="row navbar-default navbar-fixed-bottom formActionsNavbar">
+      <div class="col-xs-6">
+        <a href="#/capacitaciones" class="btn btn-default">Cerrar</a>
+      </div>
+      <div class="col-xs-6">
+        <button class="btn btn-primary pull-right btn-lg">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>

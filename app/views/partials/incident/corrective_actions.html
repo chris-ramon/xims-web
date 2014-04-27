@@ -1,0 +1,93 @@
+<div class="page-header">
+  <h2>Incidente - SAU-AL-001-14 </h2>
+</div>
+
+<!-- process steps -->
+<xims-steps-wizard steps="IncidentStepsService.steps"
+                   active-id="{{ IncidentStepsService.correctiveActionsId }}">
+</xims-steps-wizard>
+<!-- END process steps -->
+
+<div class="row formWrapper">
+  <form ng-submit="save()" role="form" class="col-xs-12">
+
+    <div class="page-header">
+      <h3>Acciones Correctivas</h3>
+    </div>
+
+    <!-- accident type * sector normative and law -->
+    <div class="row" ng-show="{{ incident.type == IncidentService.accident }}" >
+      <div class="form-group col-xs-4">
+        <label for="accidentTypeNormSelect">Tipo de Accidente</label>
+        <select id="accidentTypeNormSelect" class="form-control">
+          <option value=""></option>
+          <option value="{{ type.id }}" ng-repeat="type in accidentTypeByNorm">{{ type.label }}</option>
+        </select>
+      </div>
+      <div class="form-group col-xs-4">
+        <label for="accidentTypeFormSelect">Forma del Accidente</label>
+        <select id="accidentTypeFormSelect" class="form-control">
+          <option value=""></option>
+          <option value="{{ type.id }}" ng-repeat="type in accidentTypeByLaw">{{ type.label }}</option>
+        </select>
+      </div>
+    </div>
+    <!-- END accident type * sector normative and law -->
+
+    <div class="row">
+      <div class="form-group col-xs-4">
+        <label for="incidentActivitySelect">Actividad Principal</label>
+        <select id="incidentActivitySelect" class="form-control">
+          <option value=""></option>
+          <option value="1">Conducción de Vehículos</option>
+          <option value="2">Descarga de Tuberías de perforación</option>
+          <option value="3">Limpieza de oficinas</option>
+        </select>
+      </div>
+      <div class="form-group col-xs-4">
+        <label for="incidentWorkingActivitySelect">Tipo de Actividad Laboral</label>
+        <select id="incidentWorkingActivitySelect" class="form-control">
+          <option value=""></option>
+          <option value="1">Rutinaria</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- employees -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="page-header">
+          <h4>Trabajadores</h4>
+        </div>
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr>
+            <th>TRABAJADOR</th>
+            <th>N° HORAS TRABAJADAS <br> EN LA JORNADA LABORAL <br><small>(Antes del suceso)</small></th>
+            <th>DÍAS PERDÍDOS</th>
+            <th>DÍAS DE TRABAJO RESTRINGIDO</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="employee in incident.employees">
+            <td>{{ employee.name }}</td>
+            <td><input ng-model="employee.working_hours" type="number" class="form-control"></td>
+            <td><input ng-model="employee.lost_days" type="number" class="form-control"></td>
+            <td><input ng-model="employee.restricted_work" type="number" class="form-control"></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- END employees -->
+
+    <div class="row navbar-default navbar-fixed-bottom formActionsNavbar">
+      <div class="col-xs-6">
+        <a href="#/capacitaciones" class="btn btn-default">Cerrar</a>
+      </div>
+      <div class="col-xs-6">
+        <button class="btn btn-primary pull-right btn-lg">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>

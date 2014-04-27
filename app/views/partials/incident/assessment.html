@@ -19,9 +19,13 @@
     <div class="row" ng-show="{{ incident.type == IncidentService.accident }}" >
       <div class="form-group col-xs-4">
         <label for="accidentTypeNormSelect">Tipo de Accidente</label>
-        <select id="accidentTypeNormSelect" class="form-control">
+        <select
+            ng-model="incident.accidentTypeByNorm"
+            ng-change="accidentTypeByNormChange()"
+            ng-options="type.label for type in accidentTypeByNorm"
+            id="accidentTypeNormSelect"
+            class="form-control">
           <option value=""></option>
-          <option value="{{ type.id }}" ng-repeat="type in accidentTypeByNorm">{{ type.label }}</option>
         </select>
       </div>
       <div class="form-group col-xs-4">
@@ -63,6 +67,7 @@
           <thead>
           <tr>
             <th>TRABAJADOR</th>
+            <th ng-show="isTransit()">CONDUCÍA EL VEHÍCULO</th>
             <th>N° HORAS TRABAJADAS <br> EN LA JORNADA LABORAL <br><small>(Antes del suceso)</small></th>
             <th>DÍAS PERDÍDOS</th>
             <th>DÍAS DE TRABAJO RESTRINGIDO</th>
@@ -71,6 +76,9 @@
           <tbody>
           <tr ng-repeat="employee in incident.employees">
             <td>{{ employee.name }}</td>
+            <td ng-show="isTransit">
+              <input type="checkbox" class="form-control">
+            </td>
             <td><input ng-model="employee.working_hours" type="number" class="form-control"></td>
             <td><input ng-model="employee.lost_days" type="number" class="form-control"></td>
             <td><input ng-model="employee.restricted_work" type="number" class="form-control"></td>

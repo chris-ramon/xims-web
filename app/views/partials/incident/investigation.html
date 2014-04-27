@@ -15,8 +15,9 @@
       <h3>Investigación</h3>
     </div>
 
-    <!-- risk -->
+
     <div class="row">
+      <!-- risk -->
       <div class="form-group col-xs-4">
         <label for="incidentRiskSelect">Riesgo Asociado</label>
         <select id="incidentRiskSelect" class="form-control">
@@ -24,8 +25,13 @@
           <option value="{{ risk.id }}" ng-repeat="risk in risks">{{ risk.name }}</option>
         </select>
       </div>
+      <!-- END risk -->
+      <div class="form-group col-xs-8">
+        <label for="incidentRootCauseDescription">Descripción de la causa raíz</label>
+        <textarea id="incidentRootCauseDescription" class="form-control" rows="5"></textarea>
+      </div>
     </div>
-    <!-- END risk -->
+
 
     <div class="page-header">
       <h3>Actos Subestándares</h3>

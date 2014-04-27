@@ -16,4 +16,5 @@ angular.module('xims.incident')
           {id_number: 99900113, name: 'Carlos Dominguez'}
         ]
       };
+      $scope.actions = [{}, {}];
     }]);

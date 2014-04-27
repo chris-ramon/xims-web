@@ -16,4 +16,7 @@ angular.module('xims.incident')
           {id_number: 99900113, name: 'Carlos Dominguez'}
         ]
       };
+      $scope.accidentTypeByNormChange = function() {
+        $scope.isTransit = ($scope.incident.accidentTypeByNorm.id == 9);
+      }
   }]);

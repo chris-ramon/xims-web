@@ -184,6 +184,10 @@ body {
 }
 .popover {
     z-index: 1031;
+    min-width: 100%;
     max-width: 100%;
+}
+.ximsSubBasicCauseSelect {
+    margin-bottom: 10px;
 }
 /* end custom styling */

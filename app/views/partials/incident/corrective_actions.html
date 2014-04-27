@@ -15,71 +15,37 @@
       <h3>Acciones Correctivas</h3>
     </div>
 
-    <!-- accident type * sector normative and law -->
-    <div class="row" ng-show="{{ incident.type == IncidentService.accident }}" >
-      <div class="form-group col-xs-4">
-        <label for="accidentTypeNormSelect">Tipo de Accidente</label>
-        <select id="accidentTypeNormSelect" class="form-control">
-          <option value=""></option>
-          <option value="{{ type.id }}" ng-repeat="type in accidentTypeByNorm">{{ type.label }}</option>
-        </select>
-      </div>
-      <div class="form-group col-xs-4">
-        <label for="accidentTypeFormSelect">Forma del Accidente</label>
-        <select id="accidentTypeFormSelect" class="form-control">
-          <option value=""></option>
-          <option value="{{ type.id }}" ng-repeat="type in accidentTypeByLaw">{{ type.label }}</option>
-        </select>
-      </div>
-    </div>
-    <!-- END accident type * sector normative and law -->
-
+    <!-- actions -->
     <div class="row">
-      <div class="form-group col-xs-4">
-        <label for="incidentActivitySelect">Actividad Principal</label>
-        <select id="incidentActivitySelect" class="form-control">
-          <option value=""></option>
-          <option value="1">Conducción de Vehículos</option>
-          <option value="2">Descarga de Tuberías de perforación</option>
-          <option value="3">Limpieza de oficinas</option>
-        </select>
-      </div>
-      <div class="form-group col-xs-4">
-        <label for="incidentWorkingActivitySelect">Tipo de Actividad Laboral</label>
-        <select id="incidentWorkingActivitySelect" class="form-control">
-          <option value=""></option>
-          <option value="1">Rutinaria</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- employees -->
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="page-header">
-          <h4>Trabajadores</h4>
-        </div>
+      <div class="table-lines col-xs-12">
         <table class="table table-bordered table-striped">
           <thead>
           <tr>
-            <th>TRABAJADOR</th>
-            <th>N° HORAS TRABAJADAS <br> EN LA JORNADA LABORAL <br><small>(Antes del suceso)</small></th>
-            <th>DÍAS PERDÍDOS</th>
-            <th>DÍAS DE TRABAJO RESTRINGIDO</th>
+            <th>N</th>
+            <th>Acción Correctiva</th>
+            <th>Estado</th>
+            <th></th>
           </tr>
           </thead>
           <tbody>
-          <tr ng-repeat="employee in incident.employees">
-            <td>{{ employee.name }}</td>
-            <td><input ng-model="employee.working_hours" type="number" class="form-control"></td>
-            <td><input ng-model="employee.lost_days" type="number" class="form-control"></td>
-            <td><input ng-model="employee.restricted_work" type="number" class="form-control"></td>
+          <tr ng-repeat="action in actions">
+            <td>{{ $index + 1 }}</td>
+            <td><textarea ng-model="action.description" class="form-control" rows="4"></textarea></td>
+            <td>
+              <select class="form-control">
+                <option value="0"></option>
+                <option value="1">Realizado</option>
+                <option value="2" selected>Pendiente</option>
+                <option value="3">En Ejecución</option>
+              </select>
+            </td>
+            <td><a href="#" class=""><i class="glyphicon glyphicon-trash"></i></a></td>
           </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <!-- END employees -->
+    <!-- END actions -->
 
     <div class="row navbar-default navbar-fixed-bottom formActionsNavbar">
       <div class="col-xs-6">

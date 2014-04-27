@@ -10,10 +10,10 @@
 
 <div class="row formWrapper">
   <form ng-submit="save()" role="form" class="col-xs-12">
-    <!-- employees -->
     <div class="page-header">
-      <h3>Trabajadores Afectados</h3>
+      <h3>Trabajadores Involucrados</h3>
     </div>
+    <!-- employees -->
     <div class="row">
       <div class="table-lines col-xs-12">
         <table class="table table-bordered table-striped">
@@ -172,7 +172,52 @@
           <input ng-model="employeeOccupation" id="employeeOccupationInput" class="form-control" placeholder="Ocupación ...">
         </div>
       </div>
+      <div class="row">
+        <div class="form-group col-xs-4">
+          <label for="employeeRecruitmentStartDateInput">Antiguedad en el empleo</label>
+          <input ng-model="employee.recruitment.start_date"
+                 type="number"
+                 class="form-control"
+                 id="employeeRecruitmentStartDateInput"
+                 placeholder="Años ...">
+        </div>
+        <div class="form-group col-xs-4">
+          <label for="employeeGender">Sexo</label>
+          <select id="employeeGender" ng-model="employee.gender" class="form-control">
+            <option value="m">Masculino</option>
+            <option value="m">Femenino</option>
+          </select>
+        </div>
+        <div class="form-group col-xs-4">
+          <label for="employeeTurn">Turno</label>
+          <select id="employeeTurn" ng-model="employee.recruitment.turn" class="form-control">
+            <option value="m">Mañana</option>
+            <option value="m">Tarde</option>
+            <option value="m">Noche</option>
+          </select>
+        </div>
+      </div>
       <div class="row spacedDoubleRow">
+        <div class="form-group col-xs-4">
+          <label for="employeeRecruitmentType">Tipo de Contrato</label>
+          <select id="employeeRecruitmentType" ng-model="employee.recruitment.type" class="form-control">
+            <option value="m">Tipo A</option>
+            <option value="m">Tipo B</option>
+            <option value="m">Tipo C</option>
+            <option value="m">Tipo D</option>
+            <option value="m">Tipo E</option>
+            <option value="m">Tipo F</option>
+            <option value="m">Tipo G</option>
+          </select>
+        </div>
+        <div class="form-group col-xs-4">
+          <label for="employeeOccupationExperienceInput">Tiempo de experiencia en el puesto de trabajo</label>
+          <input ng-model="employee.occupation.experience"
+                 type="number"
+                 class="form-control"
+                 id="employeeOccupationExperienceInput"
+                 placeholder="Años ...">
+        </div>
         <div class="form-group col-xs-4">
           <label for="employeeCompanySelect">Empresa</label>
           <select ng-model="employee.organizationId" id="employeeCompanySelect" class="form-control">

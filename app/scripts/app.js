@@ -7,9 +7,11 @@ angular.module('ximsApp', [
   'ngSanitize',
   'ngRoute',
   'xims.incident',
+  'xims.cause',
   'ximsPopover',
   'ximsTypeaheadCreator',
-  'ximsStepsWizard'
+  'ximsStepsWizard',
+  'ximsCauseRow'
 ])
   .config(function ($httpProvider, $routeProvider, $locationProvider) {
     // so we can send the cookies for auth
@@ -59,6 +61,18 @@ angular.module('ximsApp', [
       .when('/incidentes/:incidentId/trabajadores', {
         templateUrl: 'partials/incident/individuals.html',
         controller: 'IncidentIndividualsNewCtrl'
+      })
+      .when('/incidentes/:incidentId/evaluacion', {
+        templateUrl: 'partials/incident/assessment.html',
+        controller: 'IncidentAssessmentNewCtrl'
+      })
+      .when('/incidentes/:incidentId/investigacion', {
+        templateUrl: 'partials/incident/investigation.html',
+        controller: 'IncidentInvestigationNewCtrl'
+      })
+      .when('/incidentes/:incidentId/acciones-correctivas', {
+        templateUrl: 'partials/incident/corrective_actions.html',
+        controller: 'IncidentCorrectiveActionsNewCtrl'
       })
       .when('/acciones', {
         templateUrl: 'partials/action/list.html',

@@ -11,7 +11,8 @@ angular.module('ximsApp', [
   'ximsPopover',
   'ximsTypeaheadCreator',
   'ximsStepsWizard',
-  'ximsCauseRow'
+  'ximsCauseRow',
+  'flashMessage'
 ])
   .config(function ($httpProvider, $routeProvider, $locationProvider) {
     // so we can send the cookies for auth

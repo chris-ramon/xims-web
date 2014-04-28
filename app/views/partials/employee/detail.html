@@ -63,7 +63,8 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <table class="table table-bordered table-striped">
+    <i ng-show="loadingTrainings" class="fa fa-spinner fa-spin fa-3x"></i>
+    <table ng-show="employee.trainings" class="table table-bordered table-striped">
       <thead>
       <tr>
         <th>Tema</th>
@@ -71,11 +72,15 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td></td>
+      <tr ng-repeat="training in employee.trainings">
+        <td>{{ training.topic }}</td>
+        <td>{{ training.training_date | date:'MM/dd/yyyy @ h:mma' }}</td>
       </tr>
       </tbody>
     </table>
+    <div ng-hide="employee.trainings.length || loadingTrainings" class="alert alert-info col-xs-4">
+      <p>No se encontraron capacitaciones.</p>
+    </div>
   </div>
 </div>
 <!-- END TRAININGS -->

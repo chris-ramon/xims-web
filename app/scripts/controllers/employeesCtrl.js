@@ -2,11 +2,23 @@
 
 
 angular.module('ximsApp')
-  .controller('EmployeeCtrl', ['ModuleService', '$routeParams', '$scope', 'EmployeeService',
-    function(ModuleService, $routeParams, $scope, EmployeeService) {
+  .controller('EmployeeCtrl', ['ModuleService', '$routeParams', '$scope', 'EmployeeService', 'TrainingService',
+    function(ModuleService, $routeParams, $scope, EmployeeService, TrainingService) {
       ModuleService.name = ModuleService.EMPLOYEE;
+      $scope.loadingTrainings = false;
       EmployeeService.getOne($routeParams.employeeId)
-        .success(function(r) { $scope.employee = r.employee; });
+        .success(function(r) {
+          $scope.employee = r.employee;
+          setTrainings();
+        });
+      function setTrainings() {
+        $scope.loadingTrainings = true;
+        TrainingService.getTrainingsByEmployee($scope.employee.id)
+          .success(function(r) {
+            $scope.employee.trainings = r.data;
+            $scope.loadingTrainings = false;
+          });
+      }
     }])
   .controller('EmployeeUpdateCtrl', ['ModuleService', '$routeParams', '$scope', 'EmployeeService', 'flashMessageService',
     function(ModuleService, $routeParams, $scope, EmployeeService, flashMessageService) {

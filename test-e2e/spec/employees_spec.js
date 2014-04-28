@@ -2,8 +2,7 @@ describe('employees page', function() {
   var signInPage = require('../pages/sign_in_page.js'),
     signOutPage = require('../pages/sign_out_page.js'),
     employeesPage = require('../pages/employees_page.js'),
-    employeesDetailPage = require('../pages/employees_detail_page.js'),
-    employeesUpdatePage = require('../pages/employees_update_page.js');
+    employeesDetailPage = require('../pages/employees_detail_page.js');
 
   it('beforeAll', function() {
     signInPage.signIn();
@@ -54,16 +53,6 @@ describe('employees page', function() {
       employeesPage.get();
       employeesPage.nextPageButton.click();
       expect(employeesPage.employeesList.count()).toBeGreaterThan(0);
-    });
-  });
-  describe('when seeing one employee', function() {
-    it('should display the main information', function() {
-      employeesPage.get();
-      employeesPage.firstEmployeeLink.click();
-      var l = employeesDetailPage.mainInformation.length;
-      for(var i=0; i<l; i++) {
-        expect(employeesDetailPage.mainInformation[i].isPresent()).toBe(true);
-      }
     });
   });
   it('afterAll', function() {

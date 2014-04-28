@@ -8,6 +8,7 @@ var employeesDetailPage = function() {
     element(by.binding('employee.occupation')),
     element(by.binding('employee.id_number'))
   ];
+  this.trainingsList = element.all(by.repeater('training in employee.trainings'));
   this.employeeId = null;
   this.get = function() {
     browser.get('http://0.0.0.0:9000/#/trabajadores/' + this.employeeId);

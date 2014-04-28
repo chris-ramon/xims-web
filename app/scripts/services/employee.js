@@ -64,8 +64,10 @@ angular.module('ximsApp')
           url: self.getOneUrl(employeeId),
           method: 'PUT',
           data: {
-            risk_insurance: data['risk_insurance'],
-            medical_exam: data['medical_exam']
+            employee : {
+              risk_insurance: data['risk_insurance'],
+              medical_exam: data['medical_exam']
+            }
           }
         });
       };

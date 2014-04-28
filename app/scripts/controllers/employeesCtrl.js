@@ -8,11 +8,12 @@ angular.module('ximsApp')
       EmployeeService.getOne($routeParams.employeeId)
         .success(function(r) { $scope.employee = r.employee; });
     }])
-  .controller('EmployeeUpdateCtrl', ['ModuleService', '$routeParams', '$scope', 'EmployeeService',
-    function(ModuleService, $routeParams, $scope, EmployeeService) {
+  .controller('EmployeeUpdateCtrl', ['ModuleService', '$routeParams', '$scope', 'EmployeeService', 'flashMessageService',
+    function(ModuleService, $routeParams, $scope, EmployeeService, flashMessageService) {
       ModuleService.name = ModuleService.EMPLOYEE;
       EmployeeService.getOne($routeParams.employeeId)
         .success(function(r) { $scope.employee = r.employee; });
+      $scope.flashMessageService = flashMessageService;
 
       // datepicker
       $scope.format = 'dd-MMMM-yyyy';
@@ -23,16 +24,25 @@ angular.module('ximsApp')
         model.opened = !model.opened;
       };
 
+      $scope.saving = false;
       $scope.save = function() {
-        if($scope.employee)
+        if($scope.employee) {
+          $scope.saving = true;
           EmployeeService.updateOne($routeParams.employeeId, $scope.employee)
             .success(function(r) {
-              // show message update successfully
-              console.log(r);
+              flashMessageService.addFlashMessage({
+                id: 'EUPD-001',
+                text: 'Información actualizada con éxito!',
+                level: 'success'});
+              $scope.saving = false;
             })
             .error(function() {
-              // show message update failed
-              console.log(r);
+              flashMessageService.addFlashMessage({
+                id: 'EUPD-002',
+                text: 'Error al guardar la información!',
+                level: 'warning'});
+              $scope.saving = false;
             });
+        }
       };
     }]);

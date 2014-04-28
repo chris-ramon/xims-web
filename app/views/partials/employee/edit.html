@@ -35,9 +35,9 @@
                  class="form-control"
                  datepicker-popup="{{format}}"
                  ng-model="employee.risk_insurance.expiration_date" is-open="employee.risk_insurance.opened"
-                 min="minDate" max="'2015-06-22'"
+                 min="minDate"
                  datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
-                 ng-required="true" close-text="Cerrar"
+                 close-text="Cerrar"
                  show-weeks='false' current-text='Hoy' />
             <span class="input-group-btn">
               <button class="btn btn-default" ng-click="open($event, employee.risk_insurance)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -65,9 +65,9 @@
                  class="form-control"
                  datepicker-popup="{{format}}"
                  ng-model="employee.medical_exam.expiration_date" is-open="employee.medical_exam.opened"
-                 min="minDate" max="'2015-06-22'"
+                 min="minDate"
                  datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
-                 ng-required="true" close-text="Close" show-weeks='false'/>
+                 close-text="Close" show-weeks='false'/>
             <span class="input-group-btn">
               <button class="btn btn-default" ng-click="open($event, employee.medical_exam)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
@@ -84,7 +84,9 @@
     <a ng-href="#/trabajadores/{{ employee.id }}" class="btn btn-default">Cerrar</a>
   </div>
   <div class="col-xs-6">
-    <button class="btn btn-primary pull-right btn-lg">Guardar</button>
+    <button ng-disabled="saving" ng-click="save()" class="btn btn-primary pull-right btn-lg">
+      <i ng-show="saving" class="fa fa-spinner fa-spin fa-1x"></i>
+      Guardar</button>
   </div>
 </div>
 <!-- ACTIONS -->

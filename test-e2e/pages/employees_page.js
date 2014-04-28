@@ -8,6 +8,8 @@ var employeesPage = function() {
   this.medicalExamFilter = element(by.binding('EmployeeAlertsService.medicalExamExpired.meta.total_items'));
   this.noInductionFilter = element(by.binding('EmployeeAlertsService.noInductionTraining.meta.total_items'));
   this.employeeModuleTab = element(by.id('empModuleAnchor'));
+  this.firstEmployeeLink = element(
+    by.css('#content > div:nth-child(4) > table > tbody > tr:nth-child(1) > td:nth-child(1) > a'));
   this.get = function() {
     browser.get('http://0.0.0.0:9000/#/trabajadores/');
   }

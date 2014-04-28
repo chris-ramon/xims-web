@@ -702,7 +702,6 @@ angular.module('xims.cause')
       return null;
     };
     self.getSubstandardFacts = function(immediateCauseType) {
-      console.log(immediateCauseType);
       if(immediateCauseType == self.subStandardActId)
         return self.getActs();
       else if(immediateCauseType == self.subStandardConditionId)

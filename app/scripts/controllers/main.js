@@ -269,7 +269,7 @@ angular.module('ximsApp')
         }
       });
     } catch(err) {
-      console.log(err);
+      //console.log(err);
     }
     // end Report: Accidents by time of occurrence
 

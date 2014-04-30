@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ximsApp')
+angular.module('xims.user')
   .service('UserService', ['$http', 'ApiRoutes', function($http, ApiRoutes) {
     var self = this;
     self.currentUser = null;

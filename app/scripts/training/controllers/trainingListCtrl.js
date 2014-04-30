@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ximsApp')
+angular.module('xims.training')
   .controller('TrainingListCtrl', ['$scope', '$filter', '$rootScope', 'ModuleService', 'TrainingService', 'UserService', 'AppSettings',
     function($scope, $filter, $rootScope, ModuleService, TrainingService, UserService, AppSettings) {
       ModuleService.name = ModuleService.TRAINING;

@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('ximsApp')
+angular.module('xims.training')
   .service('TrainingService', ['$http', 'UserService', 'ApiRoutes',
     function($http, UserService, ApiRoutes) {
       var self = this;

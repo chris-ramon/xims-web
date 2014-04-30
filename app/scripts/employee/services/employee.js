@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('ximsApp')
+angular.module('xims.employee')
   .service('EmployeeService', ['$http', 'UserService', 'ApiRoutes',
     function($http, UserService, ApiRoutes) {
       var self = this;

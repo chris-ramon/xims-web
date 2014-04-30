@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('ximsApp')
+angular.module('xims.incident')
   .controller('IncidentNewCtrl', ['ModuleService', 'ProjectService', 'IncidentStepsService', '$routeParams', '$scope',
     function(ModuleService, ProjectService, IncidentStepsService, $routeParams, $scope) {
       ModuleService.name = ModuleService.INCIDENT;

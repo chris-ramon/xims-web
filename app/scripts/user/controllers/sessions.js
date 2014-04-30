@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ximsApp')
+angular.module('xims.user')
   .controller('SignInCtrl', ['$scope', 'UserService', '$location',
     function($scope, UserService, $location) {
       $scope.userForm = {};

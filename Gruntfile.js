@@ -483,6 +483,10 @@ module.exports = function (grunt) {
       ]);
     }
 
+    else if (target === 'e2e') {
+      return grunt.task.run(['e2e']);
+    }
+
     else grunt.task.run([
       'test:server',
       'test:client'
@@ -515,4 +519,15 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('e2e', function() {
+    var exec = require('child_process').exec;
+    var cb = this.async();
+    exec('./node_modules/protractor/bin/protractor test-e2e/protractor.conf.js',
+      {cwd: '.'}, function(err, stdout) {
+        console.log(stdout);
+        cb();
+    });
+  });
+
 };

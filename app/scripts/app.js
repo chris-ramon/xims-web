@@ -8,6 +8,7 @@ angular.module('ximsApp', [
   'ngRoute',
   'xims.incident',
   'xims.cause',
+  'xims.correctiveAction',
   'ximsPopover',
   'ximsTypeaheadCreator',
   'ximsStepsWizard',
@@ -76,8 +77,8 @@ angular.module('ximsApp', [
         controller: 'IncidentCorrectiveActionsNewCtrl'
       })
       .when('/acciones', {
-        templateUrl: 'partials/action/list.html',
-        controller: 'ActionListCtrl'
+        templateUrl: 'partials/corrective_action/list.html',
+        controller: 'CorrectiveActionListCtrl'
       })
       .otherwise({
         redirectTo: '/'

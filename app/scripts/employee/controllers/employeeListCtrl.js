@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ximsApp')
+angular.module('xims.employee')
   .controller('EmployeeListCtrl',
     ['$scope', '$filter', '$rootScope', 'ModuleService', 'UserService',
       'EmployeeService', 'EmployeeAlertsService', 'AppSettings',

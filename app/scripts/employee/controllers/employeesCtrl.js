@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('ximsApp')
+angular.module('xims.employee')
   .controller('EmployeeCtrl', ['ModuleService', '$routeParams', '$scope', 'EmployeeService', 'TrainingService',
     function(ModuleService, $routeParams, $scope, EmployeeService, TrainingService) {
       ModuleService.name = ModuleService.EMPLOYEE;

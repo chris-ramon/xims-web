@@ -6,6 +6,7 @@ angular.module('ximsApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+  'xims.employee',
   'xims.incident',
   'xims.cause',
   'xims.correctiveAction',

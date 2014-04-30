@@ -148,6 +148,15 @@
 </div>
 <!-- END RECORDS -->
 
+<!-- FLASH MESSAGE -->
+<div ng-hide="TrainingService.employees.length || TrainingService.loadingEmployees"
+     class="row">
+  <div class="alert alert-info">
+    <p>No se encontraron resultados.</p>
+  </div>
+</div>
+<!-- FLASH MESSAGE -->
+
 <!--LOADER-->
 <div ng-show="TrainingService.loadingTrainings" class="row text-center">
   <i class="fa fa-spinner fa-spin fa-4x"></i>

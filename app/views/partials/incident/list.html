@@ -1,8 +1,8 @@
 <!-- HEADER -->
-<div ng-controller="EmployeeListHeaderCtrl" class="row">
+<div ng-controller="IncidentListHeaderCtrl" class="row">
   <h3 class="col-xs-2 content-title">Incidentes</h3>
   <small>
-    <a ng-show="EmployeeAlertsService.filterApplied" ng-click="clearFilter()" id="empFilterMessage" href="" class="">Limpiar filtro / Ver todos</a></small>
+    <!--<a ng-show="EmployeeAlertsService.filterApplied" ng-click="clearFilter()" id="empFilterMessage" href="" class="">Limpiar filtro / Ver todos</a></small>-->
   <div class="col-xs-10">
     <div class="pull-right btn-group">
       <a href="#/incidentes/nuevo" class="btn btn-primary">Nuevo Incidente</a>
@@ -19,7 +19,7 @@
 <!-- END HEADER -->
 
 <!-- QUICK FILTERING -->
-<div ng-controller="EmployeeListFiltersCtrl" class="row">
+<div ng-controller="IncidentListFiltersCtrl" class="row">
   <div class="col-xs-12">
     <div class="table moneyBar" id="uniqName_46_2" widgetid="uniqName_46_2">
       <div class="tableRow" data-dojo-attach-point="_tableBarRow">

@@ -75,6 +75,10 @@
               <span class="fa fa-home"></span> Home
             </a>
           </li>
+          <li ng-class="{active: currentModule('incident')}" >
+            <a href="#/incidentes">
+              <i class="fa fa-search"></i> Incidentes</a>
+          </li>
           <li ng-class="{active: currentModule('employee')}" >
             <a id="empModuleAnchor" href="#/trabajadores">
               <i class="fa fa-users"></i> Trabajadores
@@ -83,10 +87,6 @@
           <li ng-class="{active: currentModule('training')}" >
             <a href="#/capacitaciones">
               <i class="fa fa-file-text-o"></i> Capacitaciones</a>
-          </li>
-          <li ng-class="{active: currentModule('incident')}" >
-            <a href="#/incidentes">
-              <i class="fa fa-search"></i> Incidentes</a>
           </li>
           <li ng-class="{active: currentModule('action')}" >
             <a href="#/acciones">
@@ -170,6 +170,7 @@
     <script src="scripts/incident/incident.module.js"></script>
     <script src="scripts/incident/services/IncidentStepsService.js"></script>
     <script src="scripts/incident/services/IncidentService.js"></script>
+    <script src="scripts/incident/controllers/IncidentListFiltersCtrl.js"></script>
     <script src="scripts/incident/controllers/IncidentAssessmentNewCtrl.js"></script>
     <script src="scripts/incident/controllers/IncidentInvestigationNewCtrl.js"></script>
     <script src="scripts/incident/controllers/IncidentCorrectiveActionsNewCtrl.js"></script>

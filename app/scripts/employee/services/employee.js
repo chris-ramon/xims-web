@@ -11,6 +11,14 @@ angular.module('xims.employee')
       self.currentPage = 0;
       self.loadingEmployees = false;
 
+      self.getEmployees = function(page, per_page) {
+        return $http({
+          method: 'GET',
+          url: self.getAllUrl(),
+          params: {page: page, per_page: per_page}
+        });
+      };
+
       self.getAll = function(page) {
         if(self.loadingEmployees) { return false; }
         self.loadingEmployees = true;

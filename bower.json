@@ -17,7 +17,8 @@
     "angular-bootstrap": "git@github.com:chris-ramon/bootstrap-bower-typeahead.git",
     "d3": "~3.3.13",
     "nvd3": "~1.1.15",
-    "c3": "~0.1.26"
+    "c3": "~0.1.26",
+    "jquery-file-upload": "~9.5.7"
   },
   "devDependencies": {
     "angular-mocks": "1.2.11",

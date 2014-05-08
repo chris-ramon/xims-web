@@ -17,6 +17,9 @@ var Fixtures = {
   alertEmployees: {
     data: [{id: 11, id_number: 45996137, first_name: 'luis'}],
     meta: {total_items: 1, current_page: 1}
+  },
+  trainedEmployee: {
+    employee: {id: 1, first_name: 'yo'}
   }
 };
 

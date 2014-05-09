@@ -8,11 +8,5 @@ angular.module('ximsApp')
       {id: 1, name: 'Proyecto AAA'},
       {id: 2, name: 'Proyecto BBB'}
     ];
-//    self.setCurrentUser = function() {
-//      return $http({
-//        url: ApiRoutes.getMainApiUrl() + '/users/current_user',
-//        method: 'GET'
-//      }).success(updateCurrentUser);
-//    }
   }]);
 

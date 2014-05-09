@@ -17,7 +17,6 @@ angular.module('ximsApp', [
   'xims.individual',
   'ximsPopover',
   'ximsTypeaheadCreator',
-  'ximsTypeaheadUpdater',
   'ximsStepsWizard',
   'ximsCauseRow',
   'ximsUploadInput',

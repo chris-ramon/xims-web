@@ -129,17 +129,17 @@
     <thead>
       <tr>
         <th>N° Registro</th>
-        <th>Tipo</th>
         <th>Tema</th>
+        <th>Tipo</th>
         <th>Fecha</th>
         <th>N° Horas</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody ng-hide="TrainingService.loadingTrainings">
       <tr ng-repeat="training in TrainingService.trainings | filter:searchText | orderBy:predicate:reverse">
         <td><a ng-href="#/capacitaciones/{{ training.id }}" class="">{{ training.id }}</a></td>
+        <td><a ng-href="#/capacitaciones/{{ training.id }}" class="">{{ training.topic }}</a></td>
         <td>{{ training.training_type }}</td>
-        <td>{{ training.topic }}</td>
         <td>{{ training.training_date | date:'MM/dd/yyyy @ h:mma' }}</td>
         <td>{{ training.training_hours }}</td>
       </tr>

@@ -75,6 +75,7 @@ module.exports = function (grunt) {
       livereload: {
         files: [
           '<%= yeoman.app %>/views/{,*//*}*.{html,jade}',
+          '<%= yeoman.app %>/views/partials/{,*/}/{,*/}/*.html',
           '<%= yeoman.app %>/views/partials/{,*/}*.html',
           '{.tmp,<%= yeoman.app %>}/styles/{,*//*}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*//*}*.js',
@@ -456,7 +457,6 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer',
       'express:dev',
-      'open',
       'watch'
     ]);
   });
@@ -485,6 +485,9 @@ module.exports = function (grunt) {
 
     else if (target === 'e2e') {
       return grunt.task.run(['e2e']);
+    }
+    else if (target === 'e2e-deb') {
+      return grunt.task.run(['e2e-deb']);
     }
 
     else grunt.task.run([
@@ -520,6 +523,16 @@ module.exports = function (grunt) {
     'build'
   ]);
 
+  grunt.registerTask('e2e-deb', function() {
+    var exec = require('child_process').exec;
+    var cb = this.async();
+    exec('./node_modules/protractor/bin/protractor debug test-e2e/protractor.conf.js',
+      {cwd: '.'}, function(err, stdout) {
+        console.log(stdout);
+        cb();
+      });
+  });
+
   grunt.registerTask('e2e', function() {
     var exec = require('child_process').exec;
     var cb = this.async();
@@ -529,5 +542,4 @@ module.exports = function (grunt) {
         cb();
     });
   });
-
 };

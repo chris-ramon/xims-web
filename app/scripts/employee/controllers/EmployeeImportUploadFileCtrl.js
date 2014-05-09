@@ -9,14 +9,13 @@ angular.module('xims.employee')
       $scope.mainApiUrl = ApiRoutes.getMainApiUrl();
     }])
   .controller('PostUploadFormCtrl', [
-    '$scope', '$http', '$location', 'ApiRoutes', 'EmployeeImportService',
-    function ($scope, $http, $location, ApiRoutes, EmployeeImportService) {
+    '$scope', '$http', '$location', 'ApiRoutes', 'EmployeeImportService', 'UploadService',
+    function ($scope, $http, $location, ApiRoutes, EmployeeImportService, UploadService) {
       // jquery-file-uploader needs this in order to send the cookies to
       // know the current user
       $('#fileupload').fileupload({xhrFields: {withCredentials: true}});
-      var url = ApiRoutes.getMainApiUrl() + '/uploads/';
-      $scope.options = { 
-        url: url,
+      $scope.options = {
+        url: UploadService.getAllUrl(),
         done: function(e, data) {
           var uploadId = data.result.files[0].id;
           EmployeeImportService.setUploadFileId(uploadId);

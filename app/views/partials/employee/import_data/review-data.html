@@ -1,0 +1,85 @@
+<!-- HEADER -->
+<div class="page-header">
+  <h3>Revisar los Datos</h3>
+</div>
+<!-- END HEADER -->
+
+<!-- process steps -->
+<xims-steps-wizard steps="EntityImportService.steps"
+                   active-id="{{ EntityImportService.reviewDataId}}">
+</xims-steps-wizard>
+<!-- END process steps -->
+
+<!-- employee records -->
+<div class="row spacedDoubleRow">
+  <div class="col-xs-12 scrollableTableWrapper">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>DNI</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Edad</th>
+        <th>Área de trabajo</th>
+        <th>Ocupación</th>
+        <th>Años de Experiencia</th>
+        <th>Sexo</th>
+        <th>Turno</th>
+        <th>Tipo de Contrato</th>
+        <th>Años de Experiencia</th>
+        <th>Empresa</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="employee in employees">
+        <td>{{ employee.id_number }}</td>
+        <td>{{ employee.names }}</td>
+        <td>{{ employee.last_names }}</td>
+        <td>{{ employee.age }}</td>
+        <td>{{ employee.workspace }}</td>
+        <td>{{ employee.occupation }}</td>
+        <td>{{ employee.company_years_of_experience }}</td>
+        <td>{{ employee.gender }}</td>
+        <td>{{ employee.occupation_turn }}</td>
+        <td>{{ employee.type_of_contract }}</td>
+        <td>{{ employee.occupation_years_of_experience }}</td>
+        <td>{{ employee.company_name }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- END employee records -->
+
+<div class="row">
+  <div class="col-xs-12 text-center">
+    <button ng-click="importData()" class="btn btn-primary">Importar {{ totalItems }}
+      <ng-pluralize count="employees.length"
+                    when="{'1': 'Trabajador', 'other': 'Trabajadores'}">
+      </ng-pluralize>
+    </button>
+  </div>
+</div>    
+    
+<!--LOADER-->
+<div ng-show="loadingEmployees" class="row text-center">
+  <i class="fa fa-spinner fa-spin fa-4x"></i>
+</div>
+<!--END LOADER-->
+
+<!-- PAGINATION -->
+<div class="row sg-pagination">
+  <pagination total-items="totalItems"
+              page="currentPage"
+              max-size="maxSize"
+              class="pagination-sm"
+              boundary-links="true"
+              items-per-page="itemsPerPage"
+              on-select-page="setEmployees(page)"
+              first-text="Primero"
+              last-text="Último"
+              previous-text="Anterior"
+              next-text="Siguiente">
+  </pagination>
+</div>
+<!-- END PAGINATION -->

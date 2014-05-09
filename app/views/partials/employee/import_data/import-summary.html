@@ -1,0 +1,28 @@
+<!-- HEADER -->
+<div class="page-header">
+  <h3>Resumen</h3>
+</div>
+<!-- END HEADER -->
+
+<!-- process steps -->
+<xims-steps-wizard steps="EntityImportService.steps"
+                   active-id="{{ EntityImportService.importSummaryId}}">
+</xims-steps-wizard>
+<!-- END process steps -->
+
+<!--  -->
+<div class="row">
+   <div class="col-xs-12">
+     <div class="panel panel-warning">
+       <div class="panel-heading">
+         <p>Resumen</p>
+       </div>
+       <div class="panel-body">
+        <p><span>{{ EmployeeImportService.totalImported }}</span> contactos fueron importados. <a href="/trabajadores" class="">Ver todos los empleados</a></p>
+      </div>
+
+     </div>
+   </div>
+</div>
+
+

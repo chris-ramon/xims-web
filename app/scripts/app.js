@@ -12,13 +12,19 @@ angular.module('ximsApp', [
   'xims.incident',
   'xims.correctiveAction',
   'xims.training',
+  'xims.upload',
+  'xims.dataImporter',
+  'xims.individual',
   'ximsPopover',
   'ximsTypeaheadCreator',
+  'ximsTypeaheadUpdater',
   'ximsStepsWizard',
   'ximsCauseRow',
-  'flashMessage'
+  'ximsUploadInput',
+  'flashMessage',
+  'blueimp.fileupload'
 ])
-  .config(function ($httpProvider, $routeProvider, $locationProvider) {
+  .config(function ($httpProvider, $routeProvider, $locationProvider, fileUploadProvider) {
     // so we can send the cookies for auth
     $httpProvider.defaults.withCredentials = true;
 
@@ -42,6 +48,18 @@ angular.module('ximsApp', [
       .when('/trabajadores/:employeeId/editar', {
         templateUrl: 'partials/employee/edit.html',
         controller: 'EmployeeUpdateCtrl'
+      })
+      .when('/trabajadores/importar/subir-el-archivo', {
+        templateUrl: 'partials/employee/import_data/upload-file.html',
+        controller: 'EmployeeImportUploadFileCtrl'
+      })
+      .when('/trabajadores/importar/revisar-los-datos', {
+        templateUrl: 'partials/employee/import_data/review-data.html',
+        controller: 'EmployeeImportReviewDataCtrl'
+      })
+      .when('/trabajadores/importar/resumen', {
+        templateUrl: 'partials/employee/import_data/import-summary.html',
+        controller: 'EmployeeImportSummaryCtrl'
       })
       .when('/capacitaciones', {
         templateUrl: 'partials/training/list.html',
@@ -94,7 +112,7 @@ angular.module('ximsApp', [
       UserService.setCurrentUser()
         .success(function() { $rootScope.$emit('userLogged'); })
         .error(function() {
-          // if(Global.env == 0) {return;} // for development purposes so it does not redirects, keep this commented.
+          // if(Global.env == 0) {return;} // for development purposes uncomment - and keep it commented for tests or will fail.
           $location.path( "/ingresar" );
         });
     });

@@ -58,4 +58,24 @@ angular.module('xims.training')
         return ApiRoutes.getMainApiUrl() + '/trainings/:employee_id/trainings'
           .replace(':employee_id', employeeId);
       };
+      
+      self.getOne = function(trainingId) {
+        return $http({
+          method: 'GET',
+          url: self.getOneUrl(trainingId)
+        });
+      };
+
+      self.getOneUrl = function(trainingId) {
+        var url = ApiRoutes.getMainApiUrl() + '/trainings/:training_id';
+        return url.replace(':training_id', trainingId);
+      };
+
+      self.create = function(training) {
+        return $http({
+          method: 'POST',
+          url: self.getAllUrl(),
+          data: {training: training}
+        });
+      };
     }]);

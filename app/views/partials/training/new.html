@@ -7,7 +7,10 @@
     <div class="row">
       <div class="form-group col-xs-4">
         <label for="trainingResponsibleInput">N° DNI - Responsable del Registro</label>
-        <input ng-model="training.responsibleIdNumber" id="trainingResponsibleInput" type="text"
+        <input typeahead="employee as employee.first_name for employee in employees | filter:$viewValue | limitTo:8"
+               typeahead-template-url="template/individual/typeaheadIndividualTemplate.html"
+               typeahead-on-select="responsibleSelected($item, $model, $label)"
+               ng-model="responsible" id="trainingResponsibleInput" type="text"
                class="form-control" required>
       </div>
     </div>
@@ -17,12 +20,11 @@
       <!-- training type -->
       <div class="form-group col-xs-4">
         <label for="trainingTypeSelect">Tipo de Capacitación</label>
-        <select ng-model="training.trainingType"
-                id="trainingTypeSelect" class="form-control">
-          <option>Inducción</option>
-          <option>Capacitación</option>
-          <option>Entrenamiento</option>
-          <option>Simulacro de Emergencia</option>
+        <select ng-model="training.training_type"
+                id="trainingTypeSelect"
+                class="form-control"
+                ng-options="trainingType.id as trainingType.name for trainingType in TrainingTypeService.trainingTypes">
+          <option value=""></option>
         </select>
       </div>
       <!-- END training type -->
@@ -30,16 +32,27 @@
       <!-- date -->
       <div class="form-group col-xs-4">
         <label for="trainingDateInput">Fecha</label>
-        <input ng-model="training.trainingDate" id="trainingDateInput" type="text"
-               class="form-control" required>
+        <p class="input-group xims-date-picker-wrapper hide-extra-date-buttons">
+          <input type="text" id="trainingDateInput"
+                 class="form-control"
+                 datepicker-popup="{{format}}"
+                 ng-model="training.training_date" is-open="employee.risk_insurance.opened"
+                 min="minDate"
+                 datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+                 close-text="Cerrar"
+                 show-weeks='false' current-text='Hoy' />
+            <span class="input-group-btn">
+              <button class="btn btn-default" ng-click="open($event, employee.risk_insurance)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </p>
         <p class="help-block">Cuando se llevo a cabo la capacitación.</p>
       </div>
       <!-- END date -->
 
       <!-- hours -->
-      <div class="form-group col-xs-4">
+      <div class="form-group col-xs-2">
         <label for="trainingHoursInput">N° Horas</label>
-        <input ng-model="training.trainingHours" id="trainingHoursInput" type="datetime"
+        <input ng-model="training.training_hours" id="trainingHoursInput" type="datetime"
                class="form-control" required>
       </div>
       <!-- END hours -->
@@ -62,24 +75,27 @@
     <div class="row">
       <div class="form-group col-xs-2">
         <label for="trainingTrainerDNIInput">N° DNI</label>
-        <input ng-model="training.trainer.trainerIdNumber" id="trainingTrainerDNIInput" type="text"
+        <input typeahead="employee as employee.first_name for employee in employees | filter:$viewValue | limitTo:8"
+               typeahead-template-url="template/individual/typeaheadIndividualTemplate.html"
+               typeahead-on-select="trainerSelected($item)"
+               ng-model="trainer" id="trainingTrainerDNIInput" type="text"
                class="form-control" required>
       </div>
       <div class="form-group col-xs-4">
         <label for="trainingTrainerFirstNameInput">Nombres</label>
-        <input ng-model="training.trainer.trainerFirstName" id="trainingTrainerFirstNameInput" type="text"
-               class="form-control" required>
-      </div>
-      <div class="form-group col-xs-3">
-        <label for="trainingTrainerMiddleNameInput">Apellido Materno</label>
-        <input ng-model="training.trainer.trainerMiddleName"
-               id="trainingTrainerMiddleNameInput" type="text"
+        <input ng-model="trainer.first_name" id="trainingTrainerFirstNameInput" type="text"
                class="form-control" required>
       </div>
       <div class="form-group col-xs-3">
         <label for="trainingTrainerLastNameInput">Apellido Paterno</label>
-        <input ng-model="training.trainer.trainerLastName"
+        <input ng-model="trainer.last_name"
                id="trainingTrainerLastNameInput" type="text"
+               class="form-control" required>
+      </div>
+      <div class="form-group col-xs-3">
+        <label for="trainingTrainerMiddleNameInput">Apellido Materno</label>
+        <input ng-model="trainer.second_last_name"
+               id="trainingTrainerMiddleNameInput" type="text"
                class="form-control" required>
       </div>
     </div>
@@ -100,15 +116,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><input type="text" class="form-control" required></td>
-              <td><textarea class="form-control"></textarea></td>
-              <td><a href="#" class=""><i class="glyphicon glyphicon-trash"></i></a></td>
-            </tr>
-            <tr>
-              <td><input type="text" class="form-control" required></td>
-              <td><textarea class="form-control"></textarea></td>
-              <td><a href="#" class=""><i class="glyphicon glyphicon-trash"></i></a></td>
+            <tr ng-repeat="trainedEmployee in trainedEmployees">
+              <td>
+                <input typeahead="employee as employee.first_name for employee in employees | filter:$viewValue | limitTo:8"
+                       typeahead-template-url="template/individual/typeaheadIndividualTemplate.html"
+                       ng-model="trainedEmployee.employee" type="text"
+                       class="form-control">
+              </td>
+              <td><textarea
+                  ng-model="trainedEmployee.observations"
+                  class="form-control"></textarea></td>
+              <td><a ng-href="#" ng-click="clearEmployee(trainedEmployee, $event)" class=""><i class="glyphicon glyphicon-trash"></i></a></td>
             </tr>
           </tbody>
         </table>
@@ -121,7 +139,7 @@
         <a href="#/capacitaciones" class="btn btn-default">Cerrar</a>
       </div>
       <div class="col-xs-6">
-        <button class="btn btn-primary pull-right btn-lg">Guardar</button>
+        <button ng-click="save()" class="btn btn-primary pull-right btn-lg">Guardar</button>
       </div>
     </div>
   </form>

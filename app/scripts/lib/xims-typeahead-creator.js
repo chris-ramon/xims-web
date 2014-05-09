@@ -23,7 +23,7 @@ angular.module('ximsTypeaheadCreator', ['ui.bootstrap.typeahead'])
         }).popover('show').data('bs.popover').$tip.addClass('hidden');
 
         scope.$watch(attrs.ngModel, function(newVal) {
-          if(typeof newVal === 'object') { return; };
+          if(typeof newVal === 'object') { return; }
           scope.model = newVal;
           var matches = ctrls[0].popUpEl.scope().matches;
           if((matches.length == 0) && newVal) {

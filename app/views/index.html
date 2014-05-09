@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/nvd3/src/nv.d3.css" />
     <link rel="stylesheet" href="bower_components/c3/c3.css" />
+    <link rel="stylesheet" href="bower_components/jquery-file-upload/css/jquery.fileupload.css" />
+    <link rel="stylesheet" href="bower_components/jquery-file-upload/css/jquery.fileupload-ui.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
@@ -147,14 +149,35 @@
     <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/nvd3/nv.d3.js"></script>
     <script src="bower_components/c3/c3.min.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image-ios.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image-orientation.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image-meta.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image-exif.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image-exif-map.js"></script>
+    <script src="bower_components/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+    <script src="bower_components/jquery-file-upload/js/cors/jquery.postmessage-transport.js"></script>
+    <script src="bower_components/jquery-file-upload/js/cors/jquery.xdr-transport.js"></script>
+    <script src="bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
+    <script src="bower_components/jquery-file-upload/js/jquery.fileupload-process.js"></script>
+    <script src="bower_components/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
+    <script src="bower_components/jquery-file-upload/js/jquery.fileupload-image.js"></script>
+    <script src="bower_components/jquery-file-upload/js/jquery.fileupload-audio.js"></script>
+    <script src="bower_components/jquery-file-upload/js/jquery.fileupload-video.js"></script>
+    <script src="bower_components/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
+    <script src="bower_components/jquery-file-upload/js/jquery.fileupload-angular.js"></script>
+    <script src="bower_components/jquery-file-upload/js/jquery.iframe-transport.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/lib/xims-popover.js"></script>
     <script src="scripts/lib/xims-typeahead-creator.js"></script>
+    <script src="scripts/lib/xims-typeahead-updater.js"></script>
     <script src="scripts/lib/xims-steps-wizard.js"></script>
     <script src="scripts/lib/xims-cause-row.js"></script>
+    <script src="scripts/lib/xims-upload-input.js"></script>
     <script src="scripts/lib/flash-message.js"></script>
     <script src="scripts/user/user.module.js"></script>
     <script src="scripts/user/services/user.js"></script>
@@ -163,8 +186,12 @@
     <script src="scripts/employee/controllers/employeeListCtrl.js"></script>
     <script src="scripts/employee/controllers/employeeListFiltersCtrl.js"></script>
     <script src="scripts/employee/controllers/employeesCtrl.js"></script>
+    <script src="scripts/employee/controllers/EmployeeImportUploadFileCtrl.js"></script>
+    <script src="scripts/employee/controllers/EmployeeImportReviewDataCtrl.js"></script>
+    <script src="scripts/employee/controllers/EmployeeImportSummaryCtrl.js"></script>
     <script src="scripts/employee/services/employee.js"></script>
     <script src="scripts/employee/services/employeeAlerts.js"></script>
+    <script src="scripts/employee/services/EmployeeImportService.js"></script>
     <script src="scripts/cause/cause.module.js"></script>
     <script src="scripts/cause/services/CauseService.js"></script>
     <script src="scripts/incident/incident.module.js"></script>
@@ -180,11 +207,20 @@
     <script src="scripts/corrective_action/corrective_action.module.js"></script>
     <script src="scripts/corrective_action/controllers/correctiveActionListCtrl.js"></script>
     <script src="scripts/training/training.module.js"></script>
+    <script src="scripts/training/controllers/TrainingCtrl.js"></script>
     <script src="scripts/training/controllers/TrainingListCtrl.js"></script>
+    <script src="scripts/training/controllers/TrainingNewCtrl.js"></script>
     <script src="scripts/training/services/training.js"></script>
+    <script src="scripts/training/services/TrainingTypeService.js"></script>
+    <script src="scripts/upload/upload.module.js"></script>
+    <script src="scripts/upload/services/UploadService.js"></script>
+    <script src="scripts/data_importer/data_importer.module.js"></script>
+    <script src="scripts/data_importer/services/DataImporterService.js"></script>
+    <script src="scripts/individual/individual.module.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/services/main.js"></script>
     <script src="scripts/services/appSettings.js"></script>
+    <script src="scripts/services/EntityImportService.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/project/services/project.js"></script>
     <!-- endbuild -->

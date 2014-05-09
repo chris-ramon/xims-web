@@ -31,7 +31,7 @@
           <tr>
             <td>
               <input id="individual1" ng-model="individual1"
-                     typeahead-template-url="customTemplate.html"
+                     typeahead-template-url="template/individual/typeaheadIndividualTemplate.html"
                      typeahead="individual as individual.name for individual in individuals | filter:$viewValue | limitTo:8"
                      xims-typeahead-creator
                      template="newEmployeeTpl"
@@ -117,12 +117,6 @@
   </form>
 </div>
 
-<script type="text/ng-template" id="customTemplate.html">
-  <a tabindex="-1">
-    <span>DNI: {{ match.model.id_number }}</span> -
-    <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
-  </a>
-</script>
 <script type="text/ng-template" id="newEmployeeTpl">
   <div ng-controller="newEmployeeCtrl">
     <div class="alert alert-info">

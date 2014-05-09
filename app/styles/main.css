@@ -99,7 +99,6 @@ body {
     margin-bottom: 2em;
 }
 .formWrapper {
-    margin-top: 2em;
     padding-bottom: 6em;
 }
 .closeButtonForm, .saveButtonForm {
@@ -190,4 +189,9 @@ body {
 .ximsSubBasicCauseSelect {
     margin-bottom: 10px;
 }
+.scrollableTableWrapper {
+    height: 300px !important;
+    overflow: scroll;
+}
+
 /* end custom styling */

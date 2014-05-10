@@ -67,7 +67,7 @@
                  ng-model="employee.medical_exam.expiration_date" is-open="employee.medical_exam.opened"
                  min="minDate"
                  datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
-                 close-text="Close" show-weeks='false'/>
+                 close-text="Cerrar" show-weeks='false' current-text='Hoy'/>
             <span class="input-group-btn">
               <button class="btn btn-default" ng-click="open($event, employee.medical_exam)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>

@@ -14,8 +14,9 @@ angular.module('xims.employee')
       // jquery-file-uploader needs this in order to send the cookies to
       // know the current user
       $('#fileupload').fileupload({xhrFields: {withCredentials: true}});
+      var url = UploadService.getAllUrl();
       $scope.options = {
-        url: UploadService.getAllUrl(),
+        url: url,
         done: function(e, data) {
           var uploadId = data.result.files[0].id;
           EmployeeImportService.setUploadFileId(uploadId);
